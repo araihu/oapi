@@ -112,7 +112,7 @@
         "apiVersion": "0.0.2",
         "audience": "local",
         "channel": "branch",
-        "commit": "91b0293f86f58d63f8899713917203cc00a69956",
+        "commit": "b8d5c010671aaa4d8c080d2a75768a983f119847",
         "href": "/catalogs/talaria-mem/documents/control-next/",
         "key": "control-next",
         "project": "talaria-mem",
@@ -139,8 +139,8 @@
         "version": null
       }
     ],
-    "fingerprint": "d655670f56667583bbadb177dae38e6e558644a79d3668b35d9acc19a761260b",
-    "generation": "build-yzl6hf46",
+    "fingerprint": "dd0e846b5001bf0882988b03a42454c5f4c0e9ac39e797e046bdb005cfa3df45",
+    "generation": "build-7b7czdts",
     "inputs": {
       "brandAssets": {
         "assets/brand/araihu.svg": "4cfd0b1f678fa9ef20a5c2241eeb3fcae235988f120fef07f42e3af962cf031b",
@@ -265,7 +265,7 @@
           "refs/heads/main": "d07ca7a9f2690ffc75e8a6ebf6aaea574daea6f4"
         },
         "talaria-mem": {
-          "refs/heads/main": "91b0293f86f58d63f8899713917203cc00a69956"
+          "refs/heads/main": "b8d5c010671aaa4d8c080d2a75768a983f119847"
         },
         "xisnove": {
           "refs/heads/main": "a36c50c41f213984a60af4e766ac7133d0bd9e6a"
@@ -274,7 +274,7 @@
       "renderer": "6dde03b07870c52ccd6950a2bbf2480e73c176b343b3856e53274b18d0b6d1a2"
     },
     "manjaRevision": "56318e36ec4d1afff6bf4592e38645ed75df78be",
-    "publishedAt": "2026-11-01T13:48:43.637112+00:00",
+    "publishedAt": "2026-11-01T13:55:23.116631+00:00",
     "releases": {
       "manja:refs/tags/openapi/management/v0.1.0": {
         "commit": "56318e36ec4d1afff6bf4592e38645ed75df78be",
@@ -297,7 +297,7 @@
     },
     "schemaVersion": 1
   },
-  "checkedAt": "2026-11-01T13:48:57.976576+00:00",
+  "checkedAt": "2026-11-01T13:55:37.759999+00:00",
   "deployed": {
     "aliases": {
       "/catalogs/balemoh/specs/public/branches/main/": "/catalogs/balemoh/documents/public-next/",
@@ -411,7 +411,7 @@
         "apiVersion": "0.0.2",
         "audience": "local",
         "channel": "branch",
-        "commit": "91b0293f86f58d63f8899713917203cc00a69956",
+        "commit": "b8d5c010671aaa4d8c080d2a75768a983f119847",
         "href": "/catalogs/talaria-mem/documents/control-next/",
         "key": "control-next",
         "project": "talaria-mem",
@@ -438,8 +438,8 @@
         "version": null
       }
     ],
-    "fingerprint": "d655670f56667583bbadb177dae38e6e558644a79d3668b35d9acc19a761260b",
-    "generation": "build-yzl6hf46",
+    "fingerprint": "dd0e846b5001bf0882988b03a42454c5f4c0e9ac39e797e046bdb005cfa3df45",
+    "generation": "build-7b7czdts",
     "inputs": {
       "brandAssets": {
         "assets/brand/araihu.svg": "4cfd0b1f678fa9ef20a5c2241eeb3fcae235988f120fef07f42e3af962cf031b",
@@ -564,7 +564,7 @@
           "refs/heads/main": "d07ca7a9f2690ffc75e8a6ebf6aaea574daea6f4"
         },
         "talaria-mem": {
-          "refs/heads/main": "91b0293f86f58d63f8899713917203cc00a69956"
+          "refs/heads/main": "b8d5c010671aaa4d8c080d2a75768a983f119847"
         },
         "xisnove": {
           "refs/heads/main": "a36c50c41f213984a60af4e766ac7133d0bd9e6a"
@@ -573,7 +573,7 @@
       "renderer": "6dde03b07870c52ccd6950a2bbf2480e73c176b343b3856e53274b18d0b6d1a2"
     },
     "manjaRevision": "56318e36ec4d1afff6bf4592e38645ed75df78be",
-    "publishedAt": "2026-11-01T13:48:43.637112+00:00",
+    "publishedAt": "2026-11-01T13:55:23.116631+00:00",
     "releases": {
       "manja:refs/tags/openapi/management/v0.1.0": {
         "commit": "56318e36ec4d1afff6bf4592e38645ed75df78be",
