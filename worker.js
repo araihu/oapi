@@ -35,7 +35,14 @@ export default {
     if (!path) return new Response(request.method === 'HEAD' ? null : 'Not found', { status: 404 });
     const cacheKey = new Request(url.origin + url.pathname);
     const cached = await caches.default.match(cacheKey);
-    if (cached) return request.method === 'HEAD' ? new Response(null, cached) : cached;
+    if (cached) {
+      if (request.headers.get('If-None-Match') === cached.headers.get('ETag')) {
+        return new Response(null, { status: 304, headers: cached.headers });
+      }
+      // The HTTP runtime omits HEAD bodies. Keep the representation here so
+      // workerd retains its real Content-Length instead of calculating zero.
+      return cached;
+    }
     const row = await env.HISTORY.prepare(
       'SELECT b.sha256,b.gzip_base64,b.content_type,b.byte_length FROM paths p JOIN blobs b ON b.sha256=p.sha256 WHERE p.path=?',
     ).bind(path).first();
@@ -46,10 +53,12 @@ export default {
       'X-Content-Type-Options': 'nosniff', ETag: `"${row.sha256}"`,
     };
     if (request.headers.get('If-None-Match') === headers.ETag) return new Response(null, { status: 304, headers });
-    if (request.method === 'HEAD') return new Response(null, { headers });
     const compressed = Uint8Array.from(atob(row.gzip_base64), c => c.charCodeAt(0));
     const body = new Blob([compressed]).stream().pipeThrough(new DecompressionStream('gzip'));
-    const response = new Response(body, { headers });
+    // A known-length body is required: workerd ignores Content-Length for
+    // generic streams and recalculates it as zero for a null HEAD body.
+    const bytes = await new Response(body).arrayBuffer();
+    const response = new Response(bytes, { headers });
     ctx.waitUntil(caches.default.put(cacheKey, response.clone()));
     return response;
   },

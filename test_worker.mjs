@@ -34,15 +34,28 @@ test('historical immutable GET restores exact bytes, headers, and cache entry', 
   await Promise.all(f.waiting);
 });
 
-test('history HEAD and conditional requests preserve status without a body', async () => {
-  const f = fixture({ sha256: 'fixed', content_type: 'application/json', byte_length: 123 });
+test('history HEAD preserves representation metadata; conditional requests omit a body', async () => {
+  const data = Buffer.from('{"historical":true}');
+  const f = fixture({ sha256: 'fixed', gzip_base64: gzipSync(data).toString('base64'), content_type: 'application/json', byte_length: data.length });
   const url = 'https://oapi.araihu.com' + prefix + 'file.json';
   const head = await worker.fetch(new Request(url, { method: 'HEAD' }), f.env, f.ctx);
-  assert.equal(await head.text(), '');
-  assert.equal(head.headers.get('Content-Length'), '123');
+  // The HTTP server strips this body for HEAD, as native_smoke.py verifies.
+  assert.equal(head.headers.get('Content-Length'), String(data.length));
   const unmodified = await worker.fetch(new Request(url, { headers: { 'If-None-Match': '"fixed"' } }), f.env, f.ctx);
   assert.equal(unmodified.status, 304);
   assert.equal(await unmodified.text(), '');
+});
+
+test('warm historical cache preserves HEAD length and conditional 304 responses', async () => {
+  const f = fixture(null);
+  caches.default.match = async () => new Response('original bytes', { headers: { ETag: '"cached"', 'Content-Length': '14' } });
+  const url = 'https://oapi.araihu.com' + prefix + 'cached.json';
+  const head = await worker.fetch(new Request(url, { method: 'HEAD' }), f.env, f.ctx);
+  assert.equal(head.headers.get('Content-Length'), '14');
+  const unmodified = await worker.fetch(new Request(url, { headers: { 'If-None-Match': '"cached"' } }), f.env, f.ctx);
+  assert.equal(unmodified.status, 304);
+  assert.equal(await unmodified.text(), '');
+  assert.equal(f.queries.length, 0);
 });
 
 test('unknown and mutable paths never expose storage; missing immutable assets return 404', async () => {

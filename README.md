@@ -136,6 +136,7 @@ as políticas globais de segurança.
 - Go: `1.27.3`, `GOEXPERIMENT=jsonv2`, build com `-trimpath`;
 - Redocly: `2.65.0`;
 - Wrangler: `4.156.0`;
+- Compatibilidade Workers: `2026-10-29`, suportada pelo runtime local fixado;
 - PyYAML: `6.0.3`;
 - Node: linha `24`; Python: linha `3.13` no CI.
 
@@ -149,7 +150,12 @@ bash setup.sh
 printf '{}\n' > aliases.json
 python3 -m unittest -v
 npm test
+python3 native_smoke.py
 ```
+
+O teste nativo inicia um Worker com um D1 temporário e verifica os assets atuais,
+o fallback histórico, aliases, caminhos Unicode e respostas `HEAD`/`304`. Ele não
+acessa o banco de produção e também é executado pelo CI antes da publicação.
 
 Para gerar e servir localmente, sem escrever no Cloudflare:
 

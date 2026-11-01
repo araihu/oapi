@@ -64,6 +64,7 @@ jobs:
           printf '{}\n' > aliases.json
           python3 -m unittest -v
           npm test
+          python3 native_smoke.py
       - name: Export, verify, and persist release pins and immutable history
         if: steps.probe.outputs.changed == 'true'
         id: prepare

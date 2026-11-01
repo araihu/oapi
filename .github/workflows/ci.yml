@@ -33,3 +33,4 @@ jobs:
           printf '{}\n' > aliases.json
           python3 -m unittest -v
           npm test
+          python3 native_smoke.py
