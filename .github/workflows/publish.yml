@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
   schedule:
-    - cron: '3-58/5 * * * *'
+    - cron: '2/5 * * * *'
   repository_dispatch:
     types: [specs-changed]
   workflow_dispatch:
