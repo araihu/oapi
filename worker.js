@@ -42,7 +42,7 @@ export default {
     if (!row) return new Response(request.method === 'HEAD' ? null : 'Not found', { status: 404 });
     const headers = {
       'Content-Type': row.content_type, 'Content-Length': String(row.byte_length),
-      'Cache-Control': 'public, max-age=31536000, immutable',
+      'Cache-Control': 'public, max-age=31536000, immutable, no-transform',
       'X-Content-Type-Options': 'nosniff', ETag: `"${row.sha256}"`,
     };
     if (request.headers.get('If-None-Match') === headers.ETag) return new Response(null, { status: 304, headers });

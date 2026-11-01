@@ -115,6 +115,21 @@ necessários à hospedagem.
 Aliases de branch/latest não são cacheados. Snapshots e índices com hash recebem
 cache imutável; páginas atuais revalidam conforme o padrão dos Static Assets.
 
+### Regras de entrega no Cloudflare
+
+[`cloudflare-rules.json`](cloudflare-rules.json) registra as regras aplicadas à zona.
+Para `GET`/`HEAD` neste hostname, Browser Integrity Check é desativado para permitir
+clientes OpenAPI automatizados; o limite legado de renderização dinâmica de
+catálogos também exclui essas leituras estáticas. As demais regras e domínios
+preservam a configuração anterior.
+
+RUM, ofuscação de email, reescrita de URLs e minificação automática são desativados
+nessas respostas para preservar os bytes verificados pelo Manja. Os headers
+`no-transform` reforçam esse contrato. O smoke de produção compara os hashes do
+HTML, dos índices de busca e das fontes com o export original. Aplique essas
+regras na provisão da zona; o token do publicador não recebe permissão para alterar
+as políticas globais de segurança.
+
 ## Ferramentas fixadas
 
 - Manja: `56318e36ec4d1afff6bf4592e38645ed75df78be`;

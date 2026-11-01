@@ -69,13 +69,19 @@ def main():
         if not json.loads(data).get("openapi"):
             raise RuntimeError("Source download is not OpenAPI: " + path)
 
+    def check_page(path):
+        data = fetch(path)
+        item = inventory[path.lstrip("/") + "index.html"]
+        if digest(data) != item["sha256"] or len(data) != item["length"]:
+            raise RuntimeError("Published HTML differs from verified export: " + path)
+
     with ThreadPoolExecutor(max_workers=6) as pool:
-        list(pool.map(fetch, sorted(paths)))
+        list(pool.map(check_page, sorted(paths | {"/"})))
         list(pool.map(check_source, sources))
     health = json.loads(fetch("/status.json"))
     if health.get("status") not in {"published", "unchanged", "publishing"}:
         raise RuntimeError("Publication is not healthy: " + json.dumps(health))
-    print(json.dumps({"domain": ORIGIN, "generation": registry["generation"], "catalogs": len(expected), "documents": len(registry["documents"]), "sourceDownloadsVerified": len(sources), "globalSearchVerified": True}))
+    print(json.dumps({"domain": ORIGIN, "generation": registry["generation"], "catalogs": len(expected), "documents": len(registry["documents"]), "sourceDownloadsVerified": len(sources), "globalSearchVerified": True, "htmlDigestsVerified": True}))
 
 
 if __name__ == "__main__":

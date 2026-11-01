@@ -191,10 +191,19 @@ def prepare(api, *, force=False):
     write_json(public / "publications.json", registry)
     (public / "_headers").write_text(
         "/*\n  X-Content-Type-Options: nosniff\n"
+        "/\n  Cache-Control: no-cache, no-transform\n"
+        "/catalogs/:catalog/\n  Cache-Control: no-cache, no-transform\n"
+        "/catalogs/:catalog/documents/*\n  Cache-Control: no-cache, no-transform\n"
+        "/catalogs/:catalog/search/*\n  Cache-Control: no-cache, no-transform\n"
+        "/catalogs/:catalog/_manja/*\n  Cache-Control: no-cache, no-transform\n"
+        "/search/*\n  Cache-Control: no-cache, no-transform\n"
+        "/assets/*\n  Cache-Control: no-cache, no-transform\n"
+        "/manja-assets/*\n  Cache-Control: no-cache, no-transform\n"
+        "/sw.js\n  Cache-Control: no-cache, no-transform\n"
         "/publications.json\n  Cache-Control: no-cache\n"
-        "/catalogs/:catalog/snapshots/*\n  Cache-Control: public, max-age=31536000, immutable\n"
-        "/_manja/search/directory-sha256-*\n  Cache-Control: public, max-age=31536000, immutable\n"
-        "/brand-assets/*\n  Cache-Control: public, max-age=31536000, immutable\n"
+        "/catalogs/:catalog/snapshots/*\n  Cache-Control: public, max-age=31536000, immutable, no-transform\n"
+        "/_manja/search/directory-sha256-*\n  Cache-Control: public, max-age=31536000, immutable, no-transform\n"
+        "/brand-assets/*\n  Cache-Control: public, max-age=31536000, immutable, no-transform\n"
     )
     write_json(publisher.state / "pending.json", {"registry": registry, "status": status, "previousRegistry": deployed, "previousVersions": api.previous_versions()})
     api.put("health", {"status": "publishing", "checkedAt": now(), "publishedAt": deployed.get("publishedAt") if deployed else None, "servingLastKnownGood": deployed is not None})

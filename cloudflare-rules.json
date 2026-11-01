@@ -1,0 +1,29 @@
+{
+  "zoneId": "a323a200b988c46fed850afb5fb6130b",
+  "hostname": "oapi.araihu.com",
+  "configuration": {
+    "rulesetId": "02f6e07ed325441cbd38db9fd291b371",
+    "ruleId": "3c05186a745448b1ae89c5685f3c3b08",
+    "phase": "http_config_settings",
+    "rule": {
+      "ref": "oapi_verified_static_reads",
+      "description": "Allow doc clients and preserve verified export bytes",
+      "expression": "(http.host eq \"oapi.araihu.com\" and http.request.method in {\"GET\" \"HEAD\"})",
+      "action": "set_config",
+      "action_parameters": {
+        "bic": false,
+        "disable_rum": true,
+        "email_obfuscation": false,
+        "automatic_https_rewrites": false,
+        "autominify": {"css": false, "html": false, "js": false}
+      },
+      "enabled": true
+    }
+  },
+  "dynamicCatalogRateLimit": {
+    "rulesetId": "e0607d29c60242d8b92606938a7602a6",
+    "ruleId": "cb470edd5a55418085f74181ec1f1445",
+    "expression": "(starts_with(http.request.uri.path, \"/catalogs/\") and not cf.bot_management.verified_bot and http.host ne \"demo.manja.araihu.com\" and not (http.host eq \"oapi.araihu.com\" and http.request.method in {\"GET\" \"HEAD\"}))",
+    "note": "Only the expression changed. Action, threshold, characteristics, mitigation timeout and every other rule were preserved."
+  }
+}
