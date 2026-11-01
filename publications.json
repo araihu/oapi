@@ -106,8 +106,8 @@
         "version": null
       }
     ],
-    "fingerprint": "5de7e1c5d350cea5dbd7919c4ec8672c043cde984bca7d5521d31b3b06dfe183",
-    "generation": "build-9zcqtndo",
+    "fingerprint": "2bb9c5e79028762ef7a693970f6ae447ad6ee0e2fe377b42216a8f8ee4508a47",
+    "generation": "build-3jaldcdd",
     "inputs": {
       "brandAssets": {
         "assets/brand/araihu.svg": "4cfd0b1f678fa9ef20a5c2241eeb3fcae235988f120fef07f42e3af962cf031b",
@@ -208,13 +208,13 @@
         "title": "Araihu · APIs"
       },
       "deployment": {
-        ".github/workflows/publish.yml": "94d300a1b959b21726e0c2eeb67e1c31006f14ceff764357d25bde95281a8770",
+        ".github/workflows/publish.yml": "949c0d83fbebfd5650faa4e33c8af324a7b42f36b804e7bd091c9d9ef1bc533f",
         "deploy.py": "8b63041797c4aca2ba2d163b02053be6bd470618dac0a4a62ae4eba03453a284",
         "package-lock.json": "2869f4b2f1e26085ab0b0f44ca379a42f5d2c8ee47efdbdcf657902b5b24c3db",
         "requirements.txt": "0969da99a0bc2a1b71ed50584560f4588a37567ac63af3ddbaf3c4617ca5621a",
         "setup.sh": "e6559cf4334e1cef0672477aa43eb259b49d658210b2ac1cb69cd2959e8f5e3b",
-        "worker.js": "e0f72ecc88b35891de1fb69ab58f55dbc4c12be7e46d126d17f71679492dbb68",
-        "wrangler.jsonc": "f623a61ab8353c7e6c543c8e4fef45ac3407b87379e938ede2ef32606548f45c"
+        "worker.js": "daaf39ca41f307afd4334d3cca1f94bf0431f55c8bbaa146a6122d216d187ce4",
+        "wrangler.jsonc": "a01add82f14b7505ba15cabf0c437ca21d7448748d71f28ddadb65aaeb4ebfd3"
       },
       "origin": "https://oapi.araihu.com",
       "publisher": "f2a1fdc2740491b3fcdffe0e910b7444b860a317426d04a43e0c07ec3cd3a7a0",
@@ -239,11 +239,11 @@
       "renderer": "6dde03b07870c52ccd6950a2bbf2480e73c176b343b3856e53274b18d0b6d1a2"
     },
     "manjaRevision": "56318e36ec4d1afff6bf4592e38645ed75df78be",
-    "publishedAt": "2026-11-01T08:45:23.748405+00:00",
+    "publishedAt": "2026-11-01T08:53:04.716672+00:00",
     "releases": {},
     "schemaVersion": 1
   },
-  "checkedAt": "2026-11-01T08:45:36.697435+00:00",
+  "checkedAt": "2026-11-01T08:53:15.940719+00:00",
   "deployed": {
     "aliases": {
       "/catalogs/balemoh/specs/public/branches/main/": "/catalogs/balemoh/documents/public-next/",
@@ -351,8 +351,8 @@
         "version": null
       }
     ],
-    "fingerprint": "5de7e1c5d350cea5dbd7919c4ec8672c043cde984bca7d5521d31b3b06dfe183",
-    "generation": "build-9zcqtndo",
+    "fingerprint": "2bb9c5e79028762ef7a693970f6ae447ad6ee0e2fe377b42216a8f8ee4508a47",
+    "generation": "build-3jaldcdd",
     "inputs": {
       "brandAssets": {
         "assets/brand/araihu.svg": "4cfd0b1f678fa9ef20a5c2241eeb3fcae235988f120fef07f42e3af962cf031b",
@@ -453,13 +453,13 @@
         "title": "Araihu · APIs"
       },
       "deployment": {
-        ".github/workflows/publish.yml": "94d300a1b959b21726e0c2eeb67e1c31006f14ceff764357d25bde95281a8770",
+        ".github/workflows/publish.yml": "949c0d83fbebfd5650faa4e33c8af324a7b42f36b804e7bd091c9d9ef1bc533f",
         "deploy.py": "8b63041797c4aca2ba2d163b02053be6bd470618dac0a4a62ae4eba03453a284",
         "package-lock.json": "2869f4b2f1e26085ab0b0f44ca379a42f5d2c8ee47efdbdcf657902b5b24c3db",
         "requirements.txt": "0969da99a0bc2a1b71ed50584560f4588a37567ac63af3ddbaf3c4617ca5621a",
         "setup.sh": "e6559cf4334e1cef0672477aa43eb259b49d658210b2ac1cb69cd2959e8f5e3b",
-        "worker.js": "e0f72ecc88b35891de1fb69ab58f55dbc4c12be7e46d126d17f71679492dbb68",
-        "wrangler.jsonc": "f623a61ab8353c7e6c543c8e4fef45ac3407b87379e938ede2ef32606548f45c"
+        "worker.js": "daaf39ca41f307afd4334d3cca1f94bf0431f55c8bbaa146a6122d216d187ce4",
+        "wrangler.jsonc": "a01add82f14b7505ba15cabf0c437ca21d7448748d71f28ddadb65aaeb4ebfd3"
       },
       "origin": "https://oapi.araihu.com",
       "publisher": "f2a1fdc2740491b3fcdffe0e910b7444b860a317426d04a43e0c07ec3cd3a7a0",
@@ -484,7 +484,7 @@
       "renderer": "6dde03b07870c52ccd6950a2bbf2480e73c176b343b3856e53274b18d0b6d1a2"
     },
     "manjaRevision": "56318e36ec4d1afff6bf4592e38645ed75df78be",
-    "publishedAt": "2026-11-01T08:45:23.748405+00:00",
+    "publishedAt": "2026-11-01T08:53:04.716672+00:00",
     "releases": {},
     "schemaVersion": 1
   }
