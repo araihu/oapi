@@ -1,0 +1,29 @@
+name: Scheduled workflow diagnostic
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  observe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Record trigger and actor
+        env:
+          OBSERVED_SCHEDULE: ${{ github.event.schedule }}
+        run: |
+          python3 - <<'PY'
+          import datetime,json,os
+          print(json.dumps({
+              'event':os.environ['GITHUB_EVENT_NAME'],
+              'actor':os.environ['GITHUB_ACTOR'],
+              'ref':os.environ['GITHUB_REF'],
+              'sha':os.environ['GITHUB_SHA'],
+              'schedule':os.environ.get('OBSERVED_SCHEDULE',''),
+              'observedAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),
+          }))
+          PY
