@@ -50,8 +50,9 @@ Para adicionar um projeto ou spec, altere o manifesto e abra um PR.
 O workflow [Publish OpenAPI catalogs](.github/workflows/publish.yml):
 
 1. Consulta refs Git em pushes neste repositório, por `workflow_dispatch` ou
-   `repository_dispatch` do tipo `specs-changed`. O cron solicita reconciliações
-   a cada cinco minutos; a entrega desse evento depende do scheduler do GitHub.
+   `repository_dispatch` do tipo `specs-changed`. Um Cron Trigger do Cloudflare
+   solicita reconciliações a cada cinco minutos, independentemente do scheduler
+   do GitHub.
 2. Compara as refs, configuração e ferramentas com a publicação persistida.
    Quando nada mudou, atualiza a saúde sem instalar Go/Node ou gerar o site.
 3. Fixa objetos Git e commits antes de capturar os arquivos declarados.
@@ -65,9 +66,10 @@ O workflow [Publish OpenAPI catalogs](.github/workflows/publish.yml):
    versões anteriores do Worker. As refs aceitas continuam persistidas e a
    próxima execução tenta publicar novamente.
 
-O agendamento do GitHub é best effort; cinco minutos não é um SLA. Os gatilhos
-diretos dos produtores são o caminho principal de atualização. Consulte a
-validação operacional antes de considerar o cron um fallback confirmado.
+Os gatilhos diretos dos produtores são o caminho principal de atualização.
+O cron do Cloudflare reconcilia as refs periodicamente mesmo quando uma
+notificação do produtor não chega. O workflow de publicação não contém mais
+um agendamento do GitHub.
 
 ### Notificação pelo repositório produtor
 
@@ -87,7 +89,8 @@ notificador. Seu escopo é restrito a Actions write em `araihu/oapi`; a notifica
 não exige credenciais do Cloudflare. A instalação do App deve incluir `oapi`,
 e o produtor deve disponibilizar `ARAIHU_ASSETS_APP_ID` e
 `ARAIHU_ASSETS_APP_PRIVATE_KEY` como secrets. Os secrets de organização usados
-por Balemoh, Mocó e Talaria-Mem têm acesso limitado a esses três repositórios.
+por Balemoh, Mocó, Talaria-Mem e pelo publicador `oapi` têm acesso limitado
+a esses quatro repositórios.
 
 Para adicionar um produtor, copie seu `notify-oapi.yml` de um desses projetos,
 ajuste a branch e o filtro de paths para a raiz declarada em `catalogs.json` e
@@ -101,32 +104,49 @@ release anterior e retenção dos arquivos históricos. O cron permaneceu ativo,
 sem execução `schedule` observada nessa janela; o bootstrap de `0.1.0` foi manual
 e os fluxos seguintes foram disparados automaticamente pelo App.
 
-### Diagnóstico do cron
+### Fallback no Cloudflare
 
-Em 2026-11-01, o publicador estava ativo na branch padrão `main`, Actions estava
-habilitado no repositório e na organização, e o ator tinha associação ativa de
-administrador. Mesmo assim, a API retornava zero execuções com evento `schedule`.
-O teste de controle com `schedule-canary.yml` (sem secrets, checkout ou
-concorrência) executou por `workflow_dispatch`, mas não recebeu eventos agendados
-na janela observada. O cron foi normalizado para `*/5 * * * *` sem comprovação de
-que isso tenha corrigido a entrega. Às 14:12 UTC, o publicador foi desabilitado e
-reabilitado para renovar seu cadastro de agendamento; a API confirmou o estado
-`active` após a operação.
+O `scheduled` do Worker `araihu-oapi` usa `*/5 * * * *`, definido no
+[`wrangler.jsonc`](wrangler.jsonc). O timer é do Cloudflare; a execução de Go,
+Redocly e Manja permanece no GitHub Actions. Uma indisponibilidade da API ou
+execução do GitHub será registrada e tentada novamente no próximo intervalo.
+Os gatilhos diretos dos produtores continuam ativos.
 
-A ausência de runs situa o problema antes dos jobs do publicador. A causa interna
-do scheduler não é exposta pela API; não foi possível atribuí-la a uma
-configuração incorreta nem confirmar um incidente público do GitHub. Duas
-execuções recentes do Xisnove foram criadas entre 5h40 e 5h50 após seus
-horários UTC declarados, reforçando que esse mecanismo não oferece baixa latência.
+Cada execução emite um token temporário do GitHub App, restrito a Actions write
+em `araihu/oapi`, e consulta publicações ativas ou na fila. Se houver alguma,
+registra `busy` e deixa essa execução terminar. Caso contrário, dispara
+`publish.yml` na `main` com `force: false` e um identificador
+`cloudflare-cron-<scheduledTime>`, visível no nome da execução do GitHub.
+O token é revogado ao terminar. Quando as refs não mudaram, a reconciliação
+apenas atualiza a saúde, sem gerar outra versão do site.
 
-O cron do publicador permanece habilitado como fallback não confirmado. O
-workflow de diagnóstico foi desabilitado após 45 minutos sem eventos
-agendados e pode ser reabilitado com
-`gh workflow enable schedule-canary.yml --repo araihu/oapi`; desabilite-o
-após observar o comportamento para evitar execuções extras. Um controle manual bem-sucedido não
-comprova que o agendamento funciona. Os gatilhos diretos dos cinco produtores
-independem do scheduler. As evidências de CI, notificações e produção estão na
-[validação do rollout](validation/2026-11-01-producer-notifications.json).
+[`/reconciliation.json`](https://oapi.araihu.com/reconciliation.json) mostra a
+última tentativa, seu horário agendado, resultado (`dispatched`, `busy` ou
+`failed`) e o último disparo aceito. `dispatched` confirma o aceite pelo GitHub;
+o resultado da publicação continua em
+[`/status.json`](https://oapi.araihu.com/status.json). Ambos são somente leitura
+e usam `Cache-Control: no-store`. Logs do Worker registram os mesmos eventos
+sem tokens ou chaves.
+
+O deploy de produção converte a chave RSA do App para PKCS#8 em um arquivo
+privado de `RUNNER_TEMP` e entrega os dois secrets ao Cloudflare junto com o
+código, usando `wrangler deploy --secrets-file`. O arquivo é removido mesmo em
+caso de falha. `GITHUB_APP_ID` e `GITHUB_APP_PRIVATE_KEY` são bindings secretos;
+o ID da instalação é uma variável declarada. A chave não é necessária para
+servir as páginas e não há endpoint HTTP para disparar reconciliações.
+Após rotacionar os secrets do App, execute o workflow com `force: true` para
+entregar as novas credenciais ao Worker.
+
+Para pausar o fallback, altere `triggers.crons` para `[]` e publique pelo
+workflow; restaure `*/5 * * * *` para retomá-lo. Mudanças de Cron Triggers podem
+levar até 15 minutos para propagar no Cloudflare. Os testes locais usam
+`native_smoke.py` para invocar o handler real sem credenciais de produção.
+
+A [investigação anterior](validation/2026-11-01-producer-notifications.json)
+registrou 45 minutos sem eventos no controle do GitHub e ausência de runs do
+publicador após reativação às 14:12 UTC. Mais tarde, houve um disparo tardio do
+GitHub às 18:56 UTC. O fallback foi transferido para o Cloudflare e o workflow
+de diagnóstico antigo permanece desabilitado.
 
 As execuções são serializadas e não cancelam uma publicação em andamento.
 Credenciais de publicação só são usadas pelo workflow de produção em `main`.
@@ -153,8 +173,8 @@ Cloudflare; exceder a capacidade bloqueia novas publicações sem apagar a atual
 Cada arquivo histórico comprimido/base64 deve caber em 1,8 MB.
 
 A branch `publication-state` recebe um backup dos registros após cada alteração
-publicada e, sem alterações, a cada 25 dias. Esses commits também mantêm a
-atividade do repositório para o GitHub não desativar o agendamento por inatividade.
+publicada e, sem alterações, a cada 25 dias. Esses commits mantêm um backup
+periódico mesmo quando as refs dos projetos não mudam.
 O cache do CI não é fonte de verdade para releases nem histórico.
 
 O export original em `.state/current/public` permanece intacto e verificável.
@@ -170,7 +190,8 @@ necessários à hospedagem.
 - `/catalogs/<projeto>/documents/<spec>-next/`: rota legada de desenvolvimento,
   preservada por compatibilidade; a interface mostra `main`, `master` ou o nome declarado;
 - `/publications.json`: refs, commits, digests e aliases da publicação;
-- `/status.json`: última tentativa, saúde e indicação de publicação anterior preservada.
+- `/status.json`: última tentativa, saúde e indicação de publicação anterior preservada;
+- `/reconciliation.json`: última tentativa e último disparo do fallback do Cloudflare.
 
 Aliases de branch/latest não são cacheados. Snapshots e índices com hash recebem
 cache imutável; páginas atuais revalidam conforme o padrão dos Static Assets.

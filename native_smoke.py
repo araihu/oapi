@@ -25,6 +25,7 @@ def main():
         public.mkdir()
         (public / "index.html").write_text("<!doctype html><title>Native fixture</title>current assets")
         shutil.copyfile(ROOT / "worker.js", root / "worker.js")
+        shutil.copyfile(ROOT / "reconciliation.js", root / "reconciliation.js")
         branch = "/catalogs/example/specs/public/branches/main/"
         release = "/catalogs/example/specs/public/versions/1.0.0/"
         write_json(root / "aliases.json", {branch: "/catalogs/example/documents/public-next/", release: "/catalogs/example/documents/public-v1.0.0/"})
@@ -90,7 +91,16 @@ def main():
                 assert fetch("/private.json")[0] == 404
                 assert fetch(url, "POST")[0] == 405
                 assert json.loads(fetch("/status.json")[2])["status"] == "unchanged"
-                print("Native Worker + D1 passed: static assets, historical Unicode paths, exact bytes, HEAD/304, aliases, method controls and health")
+                assert json.loads(fetch("/reconciliation.json")[2])["status"] == "not-run"
+                # A real scheduled invocation must persist failure safely when credentials are absent.
+                status, _, _ = fetch("/cdn-cgi/local/scheduled?cron=%2A%2F5+%2A+%2A+%2A+%2A")
+                assert status == 500
+                reconciliation = json.loads(fetch("/reconciliation.json")[2])
+                assert reconciliation["status"] == "failed"
+                assert reconciliation["source"] == "cloudflare-cron"
+                assert "GitHub App installation" in reconciliation["error"]
+                assert fetch("/reconciliation.json", "POST")[0] == 405
+                print("Native Worker + D1 passed: assets, history, aliases, method controls, health and persisted scheduled failure")
             finally:
                 if process.poll() is None:
                     os.killpg(process.pid, signal.SIGTERM)

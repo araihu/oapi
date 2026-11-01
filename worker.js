@@ -1,4 +1,5 @@
 import aliases from './aliases.json' with { type: 'json' };
+import { reconcile } from './reconciliation.js';
 
 export function immutablePath(encoded) {
   let path;
@@ -12,14 +13,18 @@ export function immutablePath(encoded) {
 }
 
 export default {
+  async scheduled(controller, env) {
+    await reconcile(controller, env);
+  },
   async fetch(request, env, ctx) {
     if (!['GET', 'HEAD'].includes(request.method)) {
       return new Response('Method not allowed', { status: 405, headers: { Allow: 'GET, HEAD' } });
     }
     const url = new URL(request.url);
-    if (url.pathname === '/status.json') {
-      const row = await env.HISTORY.prepare('SELECT value FROM metadata WHERE key=?').bind('health').first();
-      return new Response(request.method === 'HEAD' ? null : row?.value ?? '{}', {
+    if (['/status.json', '/reconciliation.json'].includes(url.pathname)) {
+      const key = url.pathname === '/status.json' ? 'health' : 'reconciliation';
+      const row = await env.HISTORY.prepare('SELECT value FROM metadata WHERE key=?').bind(key).first();
+      return new Response(request.method === 'HEAD' ? null : row?.value ?? (key === 'health' ? '{}' : '{"status":"not-run"}'), {
         headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' },
       });
     }

@@ -1,10 +1,9 @@
 name: Publish OpenAPI catalogs
+run-name: Reconcile OpenAPI · ${{ inputs.reconciliation_id || github.event_name }}
 
 on:
   push:
     branches: [main]
-  schedule:
-    - cron: '*/5 * * * *'
   repository_dispatch:
     types: [specs-changed]
   workflow_dispatch:
@@ -13,6 +12,10 @@ on:
         description: Rebuild and deploy even if source refs have not changed
         type: boolean
         default: false
+      reconciliation_id:
+        description: Correlation identifier supplied by the Cloudflare Cron Trigger
+        type: string
+        default: ''
 
 permissions:
   contents: write
@@ -23,6 +26,7 @@ concurrency:
 
 jobs:
   publish:
+    if: github.repository == 'araihu/oapi' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 25
     env:
@@ -77,14 +81,27 @@ jobs:
       - name: Atomically deploy the verified static export
         if: steps.prepare.outputs.changed == 'true'
         id: deploy
-        run: npm run deploy
+        env:
+          ARAIHU_ASSETS_APP_ID: ${{ secrets.ARAIHU_ASSETS_APP_ID }}
+          ARAIHU_ASSETS_APP_PRIVATE_KEY: ${{ secrets.ARAIHU_ASSETS_APP_PRIVATE_KEY }}
+        run: |
+          node .github/scripts/worker-secrets.mjs "$RUNNER_TEMP/oapi-worker-secrets.json"
+          npm run deploy -- --secrets-file "$RUNNER_TEMP/oapi-worker-secrets.json"
+      - name: Remove the temporary Worker secrets file
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import os
+          from pathlib import Path
+          (Path(os.environ['RUNNER_TEMP']) / 'oapi-worker-secrets.json').unlink(missing_ok=True)
+          PY
       - name: Check public pages, search digests, and source downloads
         if: steps.prepare.outputs.changed == 'true'
         run: python3 smoke.py
       - name: Verify the production domain and accept the deployment
         if: steps.prepare.outputs.changed == 'true'
         run: python3 deploy.py accept
-      - name: Back up publication pins and keep the scheduled repository active
+      - name: Back up publication pins
         env:
           GH_TOKEN: ${{ github.token }}
           PUBLISHED: ${{ steps.prepare.outputs.changed }}

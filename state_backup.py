@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Durable Git mirror of accepted pins; periodic commits keep GitHub cron active."""
+"""Durable Git mirror of accepted pins, refreshed periodically even without changes."""
 import base64
 import json
 import os

@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test test_worker.mjs",
+    "test": "node --test test_worker.mjs test_reconciliation.mjs",
     "deploy": "wrangler deploy"
   },
   "devDependencies": {
