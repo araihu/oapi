@@ -68,6 +68,32 @@ O agendamento do GitHub é best effort, portanto cinco minutos não é um SLA.
 Um fluxo upstream pode enviar `repository_dispatch` para reduzir a latência;
 o polling funciona sem modificar os repositórios dos projetos.
 
+### Notificação pelo repositório produtor
+
+O [workflow do Manja](https://github.com/araihu/manja/blob/main/.github/workflows/notify-oapi.yml)
+notifica o catálogo quando contratos em `api/` mudam na `main` ou quando uma tag
+`openapi/**` é publicada. Ele também aceita o evento de publicação de releases
+de spec. A notificação usa `workflow_dispatch` com `force: false`: o publicador
+reconsulta as refs canônicas do manifesto e decide se precisa publicar.
+
+O token é emitido pelo GitHub App de distribuição e dura apenas a execução do
+notificador. Seu escopo é restrito a Actions write em `araihu/oapi`; a notificação
+não exige credenciais do Cloudflare. A instalação do App deve incluir `oapi`,
+e o produtor deve disponibilizar `ARAIHU_ASSETS_APP_ID` e
+`ARAIHU_ASSETS_APP_PRIVATE_KEY` como secrets.
+
+Para adotar esse padrão em outro projeto, use o workflow do Manja como referência,
+ajuste a branch e o filtro de paths para a raiz declarada em `catalogs.json` e
+instale o workflow antes de criar novas tags. Uma reconciliação inicial importa
+também tags anteriores à instalação. O Manja é o primeiro produtor com esse
+gatilho direto; os demais produtores continuam com o polling como gatilho.
+
+A [validação de produção de 2026-11-01](validation/2026-11-01-management-release.json)
+comprovou atualizações por branch e tag, promoção do `latest`, imutabilidade da
+release anterior e retenção dos arquivos históricos. O cron permaneceu ativo,
+sem execução `schedule` observada nessa janela; o bootstrap de `0.1.0` foi manual
+e os fluxos seguintes foram disparados automaticamente pelo App.
+
 As execuções são serializadas e não cancelam uma publicação em andamento.
 Credenciais de publicação só são usadas pelo workflow de produção em `main`.
 PRs executam os mesmos testes sem acesso a credenciais de infraestrutura.

@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "project": "manja",
+  "spec": "management",
+  "audience": "internal",
+  "domain": "https://oapi.araihu.com",
+  "date": "2026-11-01",
+  "sourceChange": {
+    "pr": "https://github.com/araihu/manja/pull/199",
+    "testedHead": "6ae0dc8bcf9d64a69a4cf7e793a07e63779c1173",
+    "mergeCommit": "2d571e5b9f7fcbc161485f9292306029290bff42",
+    "initialReleaseRun": 41295205913
+  },
+  "initialRelease": {
+    "version": "0.1.0",
+    "tag": "openapi/management/v0.1.0",
+    "tagObject": "2afbe23abefed0d4feb2521e7cbb5c099098348e",
+    "commit": "56318e36ec4d1afff6bf4592e38645ed75df78be",
+    "sha256": "947d6c90003408a1fc547390b93b38c50fbe44eecabb3cb26b9cd29ddff47aaa",
+    "bootstrapTrigger": "manual workflow_dispatch",
+    "publisherRun": "https://github.com/araihu/oapi/actions/runs/41295205913"
+  },
+  "branchUpdate": {
+    "checks": {
+      "phase": "branch",
+      "generation": "build-mfgoin1j",
+      "branchCommit": "2d571e5b9f7fcbc161485f9292306029290bff42",
+      "branchSHA256": "5af66758049497d57043d4aab88b943e338411814e446a40c2a844be40766e7b",
+      "latest": "/catalogs/manja/documents/management-v0.1.0/",
+      "oldReleaseImmutable": true,
+      "sourceBytesVerified": true,
+      "newTagObject": null,
+      "elapsedSeconds": 134
+    },
+    "sourceRun": {
+      "actor": "guilycst",
+      "conclusion": "success",
+      "event": "push",
+      "head_sha": "2d571e5b9f7fcbc161485f9292306029290bff42",
+      "html_url": "https://github.com/araihu/manja/actions/runs/41297267533",
+      "id": 41297267533,
+      "status": "completed"
+    },
+    "publisherRun": {
+      "actor": "arai-hu-assets-distribution[bot]",
+      "conclusion": "success",
+      "event": "workflow_dispatch",
+      "head_sha": "cb37e8ad616c73b955393db46165dbc88b7825bb",
+      "html_url": "https://github.com/araihu/oapi/actions/runs/41297279398",
+      "id": 41297279398,
+      "status": "completed",
+      "triggering_actor": "arai-hu-assets-distribution[bot]"
+    }
+  },
+  "tagUpdate": {
+    "tag": {
+      "tag": "openapi/management/v0.1.1",
+      "tagObject": "9031cb28421cbb963acb830d000455cdf0438589",
+      "commit": "2d571e5b9f7fcbc161485f9292306029290bff42"
+    },
+    "checks": {
+      "phase": "tag",
+      "generation": "build-e93y1lf6",
+      "branchCommit": "2d571e5b9f7fcbc161485f9292306029290bff42",
+      "branchSHA256": "5af66758049497d57043d4aab88b943e338411814e446a40c2a844be40766e7b",
+      "latest": "/catalogs/manja/documents/management-v0.1.1/",
+      "oldReleaseImmutable": true,
+      "sourceBytesVerified": true,
+      "newTagObject": "9031cb28421cbb963acb830d000455cdf0438589",
+      "elapsedSeconds": 85
+    },
+    "sourceRun": {
+      "actor": "guilycst",
+      "conclusion": "success",
+      "event": "push",
+      "head_branch": "openapi/management/v0.1.1",
+      "head_sha": "2d571e5b9f7fcbc161485f9292306029290bff42",
+      "html_url": "https://github.com/araihu/manja/actions/runs/41297544333",
+      "id": 41297544333,
+      "status": "completed"
+    },
+    "publisherRun": {
+      "actor": "arai-hu-assets-distribution[bot]",
+      "conclusion": "success",
+      "event": "workflow_dispatch",
+      "head_sha": "cb37e8ad616c73b955393db46165dbc88b7825bb",
+      "html_url": "https://github.com/araihu/oapi/actions/runs/41297552181",
+      "id": 41297552181,
+      "status": "completed",
+      "triggering_actor": "arai-hu-assets-distribution[bot]"
+    }
+  },
+  "repeatedNotification": {
+    "sourceRun": {
+      "conclusion": "success",
+      "event": "release",
+      "head_branch": "openapi/management/v0.1.1",
+      "head_sha": "2d571e5b9f7fcbc161485f9292306029290bff42",
+      "html_url": "https://github.com/araihu/manja/actions/runs/41298231847",
+      "id": 41298231847,
+      "status": "completed"
+    },
+    "publisherRun": {
+      "actor": "arai-hu-assets-distribution[bot]",
+      "conclusion": "success",
+      "event": "workflow_dispatch",
+      "head_sha": "cb37e8ad616c73b955393db46165dbc88b7825bb",
+      "html_url": "https://github.com/araihu/oapi/actions/runs/41298240638",
+      "id": 41298240638,
+      "status": "completed",
+      "triggering_actor": "arai-hu-assets-distribution[bot]"
+    },
+    "generationPreserved": true
+  },
+  "scheduledPolling": {
+    "configuredCron": "1/5 * * * *",
+    "observedScheduleRuns": 0,
+    "note": "The active GitHub schedule did not dispatch during the observation window. Automatic main and tag updates were proved through producer App notifications."
+  },
+  "validation": {
+    "prCI": "https://github.com/araihu/manja/actions/runs/41295477046",
+    "prCodeQL": "https://github.com/araihu/manja/actions/runs/41295477077",
+    "testedTree": "901ced2479fad4a100acb9c8d9ef3ca5119d241b",
+    "sourceDiff": "info.version and externalDocs only; operations and schemas unchanged",
+    "browser": "One API group, three publications, a single latest marker, latest/main navigation, original source download and no page errors",
+    "historicalAssets": [
+      {
+        "path": "/_manja/search/directory-sha256-554e653a08facf113c8e2db55a89305434d56b2d00c3f576442c93002d40a404.json",
+        "sha256": "554e653a08facf113c8e2db55a89305434d56b2d00c3f576442c93002d40a404",
+        "bytes": 5978,
+        "d1FallbackETagVerified": true,
+        "headLengthVerified": true
+      },
+      {
+        "path": "/catalogs/manja/snapshots/snapshot-sha256-0d49463a861ad82b435c4b10296b93a80f67e965f691912216ab16e0bf8bacab/search-data/search/directory.json",
+        "sha256": "790bbedc8af93cd2a2e013b9fe8bb1d7e8e65a58267557993eb6d2207567c2a2",
+        "bytes": 2908,
+        "d1FallbackETagVerified": true,
+        "headLengthVerified": true
+      },
+      {
+        "path": "/catalogs/manja/snapshots/snapshot-sha256-0d49463a861ad82b435c4b10296b93a80f67e965f691912216ab16e0bf8bacab/source-files/management-next.json",
+        "sha256": "947d6c90003408a1fc547390b93b38c50fbe44eecabb3cb26b9cd29ddff47aaa",
+        "bytes": 937,
+        "d1FallbackETagVerified": true,
+        "headLengthVerified": true
+      }
+    ],
+    "applicationLatestPreserved": "v0.1.18"
+  },
+  "final": {
+    "generation": "build-e93y1lf6",
+    "catalogs": 5,
+    "apiSpecifications": 6,
+    "publications": 8,
+    "latest": "/catalogs/manja/documents/management-v0.1.1/",
+    "health": "unchanged"
+  }
+}
