@@ -39,7 +39,9 @@ async function github(request, path, token, method = 'GET', body) {
       },
       body: body ? JSON.stringify(body) : undefined,
       signal: AbortSignal.timeout(15000),
-      redirect: 'error',
+      // Workers supports manual/follow, but rejects redirect: 'error'.
+      // Treat every 3xx as failure below, without forwarding Authorization.
+      redirect: 'manual',
     });
   } catch {
     throw new ReconciliationError(`GitHub ${method} request failed`);
