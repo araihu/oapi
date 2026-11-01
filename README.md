@@ -71,6 +71,10 @@ O cron do Cloudflare reconcilia as refs periodicamente mesmo quando uma
 notificação do produtor não chega. O workflow de publicação não contém mais
 um agendamento do GitHub.
 
+A [validação em produção](validation/2026-11-01-cloudflare-cron.json) registra
+um ciclo ocupado sem duplicação e uma reconciliação disparada pelo Cloudflare
+concluída sem reconstruir o site quando as refs não mudaram.
+
 ### Notificação pelo repositório produtor
 
 Manja, Balemoh, Mocó, Talaria-Mem e Xisnove notificam o catálogo quando a branch
