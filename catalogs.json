@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "title": "Araihu · APIs",
+  "projects": [
+    {
+      "id": "balemoh",
+      "title": "Balemoh",
+      "repository": "https://github.com/araihu/balemoh.git",
+      "developmentRef": "refs/heads/main",
+      "root": "api",
+      "specs": [
+        {
+          "id": "public",
+          "entrypoint": "openapi.yaml",
+          "audience": "public"
+        }
+      ],
+      "icon": "assets/brand/balemoh.svg"
+    },
+    {
+      "id": "manja",
+      "title": "Manja",
+      "repository": "https://github.com/araihu/manja.git",
+      "developmentRef": "refs/heads/main",
+      "root": "api",
+      "specs": [
+        {
+          "id": "management",
+          "entrypoint": "openapi.yaml",
+          "audience": "internal"
+        }
+      ],
+      "icon": "assets/brand/manja.svg"
+    },
+    {
+      "id": "moco",
+      "title": "Mocó",
+      "repository": "https://github.com/araihu/moco.git",
+      "developmentRef": "refs/heads/main",
+      "root": "openapi",
+      "specs": [
+        {
+          "id": "public",
+          "entrypoint": "public.yaml",
+          "audience": "public"
+        },
+        {
+          "id": "internal",
+          "entrypoint": "internal.yaml",
+          "audience": "internal"
+        }
+      ],
+      "icon": "assets/brand/moco.svg"
+    },
+    {
+      "id": "talaria-mem",
+      "title": "Talaria-Mem",
+      "repository": "https://github.com/araihu/talaria-mem.git",
+      "developmentRef": "refs/heads/main",
+      "root": "api/openapi",
+      "specs": [
+        {
+          "id": "control",
+          "entrypoint": "talaria.yaml",
+          "audience": "local"
+        }
+      ]
+    },
+    {
+      "id": "xisnove",
+      "title": "Xisnove",
+      "repository": "https://github.com/araihu/xisnove.git",
+      "developmentRef": "refs/heads/main",
+      "root": "api",
+      "specs": [
+        {
+          "id": "public",
+          "entrypoint": "openapi.yaml",
+          "audience": "public"
+        }
+      ],
+      "icon": "assets/brand/xisnove.svg"
+    }
+  ],
+  "branding": {
+    "displayName": "Araihu",
+    "logoFile": "assets/brand/araihu.svg",
+    "logoAlt": "Araihu"
+  },
+  "description": "Referências OpenAPI dos projetos Araihu. Cada catálogo reúne suas APIs e versões, incluindo APIs internas."
+}

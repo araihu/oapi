@@ -1,0 +1,20 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "araihu-oapi",
+  "main": "worker.js",
+  "compatibility_date": "2026-11-01",
+  "workers_dev": false,
+  "preview_urls": false,
+  "assets": {
+    "directory": ".state/deploy",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "none"
+  },
+  "d1_databases": [{
+    "binding": "HISTORY",
+    "database_name": "araihu-oapi-publications",
+    "database_id": "bd7765fc-78c0-4aac-865c-1fa04d7fb451"
+  }],
+  "routes": [{"pattern": "oapi.araihu.com", "custom_domain": true}]
+}

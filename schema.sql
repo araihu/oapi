@@ -1,0 +1,17 @@
+CREATE TABLE IF NOT EXISTS metadata (
+  key TEXT PRIMARY KEY,
+  value TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS blobs (
+  sha256 TEXT PRIMARY KEY,
+  gzip_base64 TEXT NOT NULL,
+  content_type TEXT NOT NULL,
+  byte_length INTEGER NOT NULL
+);
+CREATE TABLE IF NOT EXISTS paths (
+  path TEXT PRIMARY KEY,
+  sha256 TEXT NOT NULL REFERENCES blobs(sha256)
+);
+CREATE TRIGGER IF NOT EXISTS immutable_history
+BEFORE UPDATE ON paths WHEN NEW.sha256 != OLD.sha256
+BEGIN SELECT RAISE(ABORT, 'Immutable history path changed'); END;

@@ -1,0 +1,13 @@
+{
+  "name": "@araihu/oapi",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test test_worker.mjs",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "@redocly/cli": "2.65.0",
+    "wrangler": "4.156.0"
+  }
+}

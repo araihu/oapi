@@ -1,0 +1,7 @@
+.state/
+.tools/
+.venv/
+node_modules/
+__pycache__/
+.wrangler/
+aliases.json
