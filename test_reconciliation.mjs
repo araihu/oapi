@@ -27,6 +27,7 @@ function fixture(previous = {}) {
   };
   const calls = [];
   async function request(url, options) {
+    assert.equal(options.redirect, 'manual');
     const path = new URL(url).pathname;
     calls.push({ path, url, ...options });
     if (path.includes('/access_tokens')) return Response.json({ token: 'sensitive-test-token' }, { status: 201 });
@@ -115,6 +116,18 @@ test('missing or malformed credentials fail before any GitHub request and are ne
   assert.equal(f.calls.length, 0);
   assert.equal(f.state().status, 'failed');
   assert.ok(!JSON.stringify(f.state()).includes('broken-secret'));
+});
+
+test('GitHub redirects are rejected without sending credentials to the redirect target', async () => {
+  const f = fixture();
+  const request = async (url, options) => {
+    f.calls.push({ url, ...options });
+    assert.equal(options.redirect, 'manual');
+    return new Response(null, { status: 302, headers: { Location: 'https://unexpected.example/' } });
+  };
+  await assert.rejects(reconcile(event, f.env, request), /HTTP 302/);
+  assert.equal(f.calls.length, 1);
+  assert.equal(f.state().status, 'failed');
 });
 
 test('deployment accepts GitHub PKCS#1 input, writes private PKCS#8 JSON and refuses overwrites', () => {
