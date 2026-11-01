@@ -58,9 +58,11 @@ O workflow [Publish OpenAPI catalogs](.github/workflows/publish.yml):
 4. Executa os testes, gera bundles com Redocly e exporta com Manja.
 5. Executa `manja export verify` e persiste os registros de releases e os assets
    imutáveis antes de promover a nova versão do Worker.
-6. Verifica que o domínio está servindo o fingerprint esperado e registra o
-   resultado. Um erro de aquisição, validação ou exportação mantém a publicação
-   anterior. Uma falha depois de persistir as refs força nova tentativa de deploy.
+6. Confere páginas, busca e downloads no domínio público, verifica o fingerprint
+   e registra o resultado. Um erro de aquisição, validação ou exportação mantém
+   a publicação anterior. Se a validação depois do deploy falhar, restaura as
+   versões anteriores do Worker. As refs aceitas continuam persistidas e a
+   próxima execução tenta publicar novamente.
 
 O agendamento do GitHub é best effort, portanto cinco minutos não é um SLA.
 Um fluxo upstream pode enviar `repository_dispatch` para reduzir a latência;
@@ -144,7 +146,8 @@ Para publicar, use o workflow ou configure `CLOUDFLARE_ACCOUNT_ID` e
 `CLOUDFLARE_API_TOKEN` em um ambiente confiável e execute `python3 deploy.py deploy`.
 O token precisa publicar Workers e domínios personalizados e ler/escrever D1.
 Não armazene tokens em arquivos versionados. A variável de organização contém a
-conta e o segredo da organização é liberado apenas aos repositórios selecionados.
+conta. O segredo `CLOUDFLARE_API_TOKEN` é próprio deste repositório, com acesso
+a Workers/D1 na conta de publicação e rotas na zona `araihu.com`.
 
 ### Recuperação
 

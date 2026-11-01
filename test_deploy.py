@@ -5,6 +5,8 @@ from pathlib import Path
 import sqlite3
 import tempfile
 import unittest
+from io import BytesIO
+from urllib.error import URLError
 from unittest.mock import patch
 
 import demo
@@ -28,6 +30,9 @@ class SQLiteCloudflare(deploy.Cloudflare):
                 rows = [dict(row) for row in cursor.fetchall()] if cursor.description else []
                 results.append({"success": True, "results": rows, "meta": {"changes": self.db.total_changes - before}})
         return results
+
+    def previous_versions(self):
+        return [{"version_id": "prior-worker", "percentage": 100}]
 
 
 class HistoryTests(unittest.TestCase):
@@ -66,6 +71,28 @@ class HistoryTests(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, "changed concurrently"):
             self.api.accept_pins({"fingerprint": "racing"}, "first")
         self.assertEqual(self.api.get("accepted"), second)
+
+    def test_public_acceptance_waits_for_dns_then_records_the_verified_generation(self):
+        registry = {"fingerprint": "fixed", "generation": "build-1", "publishedAt": "2026-11-01T00:00:00+00:00"}
+        self.api.accept_pins(registry, None)
+        pending = {"registry": registry, "status": {"status": "published"}}
+        responses = [URLError("DNS propagation"), BytesIO(json.dumps(registry).encode())]
+        with patch.object(deploy, "read_json", return_value=pending), patch.object(deploy, "urlopen", side_effect=responses), patch.object(deploy.time, "sleep"):
+            deploy.accept(self.api)
+        self.assertEqual(self.api.get("deployed"), registry)
+
+    def test_failed_post_deploy_check_restores_previous_worker_but_retains_accepted_tag_pins(self):
+        previous = {"fingerprint": "previous", "publishedAt": "2026-10-31T00:00:00+00:00"}
+        accepted = {"fingerprint": "new", "releases": {"new-tag": "immutable"}}
+        self.api.accept_pins(accepted, None)
+        self.api.put("deployed", accepted)
+        pending = {"previousRegistry": previous, "previousVersions": self.api.previous_versions()}
+        with patch.object(deploy, "read_json", return_value=pending), patch.dict(deploy.os.environ, {"WORKER_DEPLOY_OUTCOME": "success"}), patch.object(self.api, "worker_request") as rollback:
+            deploy.failure(self.api)
+        self.assertEqual(rollback.call_args.args[0]["versions"], self.api.previous_versions())
+        self.assertEqual(self.api.get("deployed"), previous)
+        self.assertEqual(self.api.get("accepted"), accepted)
+        self.assertTrue(self.api.get("health")["rolledBack"])
 
     def test_history_allows_only_immutable_canonical_paths(self):
         prefix = "catalogs/example/snapshots/snapshot-sha256-" + "a" * 64 + "/"

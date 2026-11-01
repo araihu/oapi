@@ -75,7 +75,11 @@ jobs:
           python3 deploy.py prepare "${flags[@]}"
       - name: Atomically deploy the verified static export
         if: steps.prepare.outputs.changed == 'true'
+        id: deploy
         run: npm run deploy
+      - name: Check public pages, search digests, and source downloads
+        if: steps.prepare.outputs.changed == 'true'
+        run: python3 smoke.py
       - name: Verify the production domain and accept the deployment
         if: steps.prepare.outputs.changed == 'true'
         run: python3 deploy.py accept
@@ -86,4 +90,6 @@ jobs:
         run: python3 state_backup.py
       - name: Preserve previous publication and report failure
         if: failure()
+        env:
+          WORKER_DEPLOY_OUTCOME: ${{ steps.deploy.outcome }}
         run: python3 deploy.py failure

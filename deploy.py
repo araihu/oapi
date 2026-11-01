@@ -37,7 +37,27 @@ class Cloudflare:
     def __init__(self):
         account = os.environ["CLOUDFLARE_ACCOUNT_ID"]
         self.token = os.environ["CLOUDFLARE_API_TOKEN"]
-        self.url = f"https://api.cloudflare.com/client/v4/accounts/{account}/d1/database/{DATABASE_ID}/query"
+        self.account_url = f"https://api.cloudflare.com/client/v4/accounts/{account}"
+        self.url = self.account_url + f"/d1/database/{DATABASE_ID}/query"
+
+    def worker_request(self, body=None):
+        request = Request(self.account_url + "/workers/scripts/araihu-oapi/deployments", data=json_bytes(body) if body else None, headers={
+            "Authorization": "Bearer " + self.token, "Content-Type": "application/json",
+        })
+        try:
+            with urlopen(request, timeout=60) as response:
+                result = json.load(response)
+        except HTTPError as error:
+            if error.code == 404 and body is None:
+                return {"deployments": []}
+            raise RuntimeError(f"Worker deployment HTTP {error.code}: {error.read().decode()[:2000]}") from None
+        if not result.get("success"):
+            raise RuntimeError("Worker deployment API failed")
+        return result["result"]
+
+    def previous_versions(self):
+        deployments = self.worker_request()["deployments"]
+        return deployments[0]["versions"] if deployments else []
 
     def query(self, queries):
         body = json_bytes({"batch": queries})
@@ -176,7 +196,7 @@ def prepare(api, *, force=False):
         "/_manja/search/directory-sha256-*\n  Cache-Control: public, max-age=31536000, immutable\n"
         "/brand-assets/*\n  Cache-Control: public, max-age=31536000, immutable\n"
     )
-    write_json(publisher.state / "pending.json", {"registry": registry, "status": status})
+    write_json(publisher.state / "pending.json", {"registry": registry, "status": status, "previousRegistry": deployed, "previousVersions": api.previous_versions()})
     api.put("health", {"status": "publishing", "checkedAt": now(), "publishedAt": deployed.get("publishedAt") if deployed else None, "servingLastKnownGood": deployed is not None})
     return True
 
@@ -188,13 +208,36 @@ def accept(api):
         raise RuntimeError("Publication state changed before deployment acceptance")
     # Verify the real domain is already serving this exact generation.
     request = Request(ORIGIN + "/publications.json?deployment=" + registry["generation"], headers={"Cache-Control": "no-cache"})
-    with urlopen(request, timeout=60) as response:
-        remote = json.load(response)
-    if remote["fingerprint"] != registry["fingerprint"]:
-        raise RuntimeError("Public domain has not activated the expected generation")
+    for attempt in range(8):
+        try:
+            with urlopen(request, timeout=20) as response:
+                remote = json.load(response)
+            if remote["fingerprint"] == registry["fingerprint"]:
+                break
+        except (URLError, TimeoutError):
+            if attempt == 7:
+                raise
+        if attempt == 7:
+            raise RuntimeError("Public domain has not activated the expected generation")
+        time.sleep(min(2 ** attempt, 15))
     api.put("deployed", registry)
     api.put("health", {**pending["status"], "servingLastKnownGood": True})
     print(json.dumps(pending["status"]), flush=True)
+
+
+def failure(api):
+    pending = read_json(ROOT / ".state/pending.json")
+    outcome = os.environ.get("WORKER_DEPLOY_OUTCOME")
+    rolled_back = False
+    if pending and outcome in {"success", "failure", "cancelled"} and pending["previousVersions"]:
+        api.worker_request({"strategy": "percentage", "versions": pending["previousVersions"], "annotations": {"workers/message": "Restore previous publication after post-deploy validation failure"}})
+        if pending["previousRegistry"]:
+            api.put("deployed", pending["previousRegistry"])
+        else:
+            api.query([{"sql": "DELETE FROM metadata WHERE key='deployed'"}])
+        rolled_back = True
+    deployed = api.get("deployed")
+    api.put("health", {"status": "error", "checkedAt": now(), "servingLastKnownGood": deployed is not None, "publishedAt": deployed.get("publishedAt") if deployed else None, "rolledBack": rolled_back, "details": "Publication failed; see the publishing workflow in araihu/oapi."})
 
 
 def main():
@@ -205,8 +248,7 @@ def main():
     api = Cloudflare()
     try:
         if args.command == "failure":
-            deployed = api.get("deployed")
-            api.put("health", {"status": "error", "checkedAt": now(), "servingLastKnownGood": deployed is not None, "publishedAt": deployed.get("publishedAt") if deployed else None, "details": "Publication failed; see the publishing workflow in araihu/oapi."})
+            failure(api)
         elif args.command == "accept":
             accept(api)
         else:
