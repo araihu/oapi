@@ -77,3 +77,15 @@ test('health is read-only, uncached, and supports HEAD', async () => {
   const denied = await worker.fetch(new Request('https://oapi.araihu.com/status.json', { method: 'POST' }), f.env, f.ctx);
   assert.equal(denied.status, 405);
 });
+
+test('reconciliation health is isolated from publication health and read-only', async () => {
+  const f = fixture({ value: '{"status":"busy","source":"cloudflare-cron"}' });
+  const url = 'https://oapi.araihu.com/reconciliation.json';
+  const response = await worker.fetch(new Request(url), f.env, f.ctx);
+  assert.equal((await response.json()).status, 'busy');
+  assert.equal(response.headers.get('Cache-Control'), 'no-store');
+  assert.equal(f.queries[0].value, 'reconciliation');
+  assert.equal((await worker.fetch(new Request(url, { method: 'POST' }), f.env, f.ctx)).status, 405);
+  const empty = fixture(null);
+  assert.deepEqual(await (await worker.fetch(new Request(url), empty.env, empty.ctx)).json(), { status: 'not-run' });
+});
