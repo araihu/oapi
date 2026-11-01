@@ -1,0 +1,400 @@
+{
+  "schemaVersion": 1,
+  "domain": "https://oapi.araihu.com",
+  "date": "2026-11-01",
+  "validatedAt": "2026-11-01T14:40:21.860005+00:00",
+  "sharedNotifierRevision": "f0617f0d52e1459e2429dee704ec891bc420c13e",
+  "sharedNotifierPullRequest": "https://github.com/araihu/oapi/pull/1",
+  "sourceChanges": {
+    "balemoh": {
+      "pullRequest": "https://github.com/araihu/balemoh/pull/74",
+      "testedHead": "ef5a265a5ca77ad3bce927f39d41ca70cd4fdf5e",
+      "mergeCommit": "0e2ec14f2247c7fe925d605e65e568d66a5ad863",
+      "checks": {
+        "url": "https://github.com/araihu/balemoh/actions/runs/41312598503",
+        "conclusion": "success",
+        "head": "ef5a265a5ca77ad3bce927f39d41ca70cd4fdf5e"
+      }
+    },
+    "moco": {
+      "pullRequest": "https://github.com/araihu/moco/pull/11",
+      "testedHead": "0f2cee196719984c5a7e2e9c90c847346da383cf",
+      "mergeCommit": "b8e00b21286854d5d9fedb0665184871f1044a7b",
+      "checks": {
+        "url": "https://github.com/araihu/moco/actions/runs/41312953332",
+        "conclusion": "success",
+        "head": "0f2cee196719984c5a7e2e9c90c847346da383cf"
+      }
+    },
+    "talaria-mem": {
+      "pullRequest": "https://github.com/araihu/talaria-mem/pull/6",
+      "testedHead": "a549a25ca55f3a65feba0bf0101de4f55cfefc36",
+      "mergeCommit": "b8d5c010671aaa4d8c080d2a75768a983f119847",
+      "checks": {
+        "url": "https://github.com/araihu/talaria-mem/actions/runs/41312603943",
+        "conclusion": "success",
+        "head": "a549a25ca55f3a65feba0bf0101de4f55cfefc36"
+      }
+    },
+    "xisnove": {
+      "pullRequest": "https://github.com/araihu/xisnove/pull/45",
+      "testedHead": "c84b99ea2f1a09c952ba87feeefaac2b2b422963",
+      "mergeCommit": "68c27ca2d5d0d798c00be3f32c3a82925a882588",
+      "checks": {
+        "url": "https://github.com/araihu/xisnove/actions/runs/41314751862",
+        "conclusion": "success",
+        "head": "c84b99ea2f1a09c952ba87feeefaac2b2b422963"
+      }
+    }
+  },
+  "notifierRuns": {
+    "balemoh": [
+      {
+        "id": 41312859654,
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "head_sha": "0e2ec14f2247c7fe925d605e65e568d66a5ad863",
+        "html_url": "https://github.com/araihu/balemoh/actions/runs/41312859654",
+        "created_at": "2026-11-01T13:46:17Z"
+      }
+    ],
+    "manja": [
+      {
+        "id": 41298231847,
+        "event": "release",
+        "status": "completed",
+        "conclusion": "success",
+        "head_sha": "2d571e5b9f7fcbc161485f9292306029290bff42",
+        "html_url": "https://github.com/araihu/manja/actions/runs/41298231847",
+        "created_at": "2026-11-01T10:36:23Z"
+      },
+      {
+        "id": 41297544333,
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "head_sha": "2d571e5b9f7fcbc161485f9292306029290bff42",
+        "html_url": "https://github.com/araihu/manja/actions/runs/41297544333",
+        "created_at": "2026-11-01T10:27:10Z"
+      },
+      {
+        "id": 41297267533,
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "head_sha": "2d571e5b9f7fcbc161485f9292306029290bff42",
+        "html_url": "https://github.com/araihu/manja/actions/runs/41297267533",
+        "created_at": "2026-11-01T10:23:18Z"
+      }
+    ],
+    "moco": [
+      {
+        "id": 41317079060,
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "head_sha": "b8e00b21286854d5d9fedb0665184871f1044a7b",
+        "html_url": "https://github.com/araihu/moco/actions/runs/41317079060",
+        "created_at": "2026-11-01T14:37:01Z"
+      }
+    ],
+    "talaria-mem": [
+      {
+        "id": 41313406790,
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "head_sha": "b8d5c010671aaa4d8c080d2a75768a983f119847",
+        "html_url": "https://github.com/araihu/talaria-mem/actions/runs/41313406790",
+        "created_at": "2026-11-01T13:53:07Z"
+      }
+    ],
+    "xisnove": [
+      {
+        "id": 41315527064,
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "head_sha": "68c27ca2d5d0d798c00be3f32c3a82925a882588",
+        "html_url": "https://github.com/araihu/xisnove/actions/runs/41315527064",
+        "created_at": "2026-11-01T14:18:22Z"
+      }
+    ]
+  },
+  "publisherRuns": {
+    "balemoh": {
+      "id": 41312869460,
+      "event": "workflow_dispatch",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/araihu/oapi/actions/runs/41312869460",
+      "created_at": "2026-11-01T13:46:24Z",
+      "updated_at": "2026-11-01T13:49:03Z"
+    },
+    "moco": {
+      "id": 41317091030,
+      "event": "workflow_dispatch",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/araihu/oapi/actions/runs/41317091030",
+      "created_at": "2026-11-01T14:37:09Z",
+      "updated_at": "2026-11-01T14:39:41Z"
+    },
+    "talaria-mem": {
+      "id": 41313415641,
+      "event": "workflow_dispatch",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/araihu/oapi/actions/runs/41313415641",
+      "created_at": "2026-11-01T13:53:14Z",
+      "updated_at": "2026-11-01T13:55:43Z"
+    },
+    "xisnove": {
+      "id": 41315538980,
+      "event": "workflow_dispatch",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/araihu/oapi/actions/runs/41315538980",
+      "created_at": "2026-11-01T14:18:30Z",
+      "updated_at": "2026-11-01T14:21:18Z"
+    }
+  },
+  "checks": {
+    "canonicalBranchCommitsVerified": 6,
+    "successfulProducers": 5,
+    "publications": 8,
+    "contractDigestsUnchanged": true,
+    "releaseDigestsUnchanged": true,
+    "latestPreserved": "0.1.1"
+  },
+  "production": {
+    "generation": "build-z60hkhav",
+    "publishedAt": "2026-11-01T14:39:24.420812+00:00",
+    "documents": [
+      {
+        "apiVersion": "0.1.0",
+        "audience": "public",
+        "channel": "branch",
+        "commit": "0e2ec14f2247c7fe925d605e65e568d66a5ad863",
+        "href": "/catalogs/balemoh/documents/public-next/",
+        "key": "public-next",
+        "project": "balemoh",
+        "ref": "refs/heads/main",
+        "repository": "https://github.com/araihu/balemoh.git",
+        "sha256": "31e4d9054c6ee04a723979cd7bc43c6ba92f3fd33d74ad16bcf82486fa6dd419",
+        "sourcePath": "api/openapi.yaml",
+        "spec": "public",
+        "version": null
+      },
+      {
+        "apiVersion": "0.1.1",
+        "audience": "internal",
+        "channel": "branch",
+        "commit": "2d571e5b9f7fcbc161485f9292306029290bff42",
+        "href": "/catalogs/manja/documents/management-next/",
+        "key": "management-next",
+        "project": "manja",
+        "ref": "refs/heads/main",
+        "repository": "https://github.com/araihu/manja.git",
+        "sha256": "5af66758049497d57043d4aab88b943e338411814e446a40c2a844be40766e7b",
+        "sourcePath": "api/openapi.yaml",
+        "spec": "management",
+        "version": null
+      },
+      {
+        "apiVersion": "0.1.1",
+        "audience": "internal",
+        "channel": "release",
+        "commit": "2d571e5b9f7fcbc161485f9292306029290bff42",
+        "href": "/catalogs/manja/documents/management-v0.1.1/",
+        "key": "management-v0.1.1",
+        "project": "manja",
+        "ref": "refs/tags/openapi/management/v0.1.1",
+        "repository": "https://github.com/araihu/manja.git",
+        "sha256": "5af66758049497d57043d4aab88b943e338411814e446a40c2a844be40766e7b",
+        "sourcePath": "api/openapi.yaml",
+        "spec": "management",
+        "version": "0.1.1"
+      },
+      {
+        "apiVersion": "0.1.0",
+        "audience": "internal",
+        "channel": "release",
+        "commit": "56318e36ec4d1afff6bf4592e38645ed75df78be",
+        "href": "/catalogs/manja/documents/management-v0.1.0/",
+        "key": "management-v0.1.0",
+        "project": "manja",
+        "ref": "refs/tags/openapi/management/v0.1.0",
+        "repository": "https://github.com/araihu/manja.git",
+        "sha256": "947d6c90003408a1fc547390b93b38c50fbe44eecabb3cb26b9cd29ddff47aaa",
+        "sourcePath": "api/openapi.yaml",
+        "spec": "management",
+        "version": "0.1.0"
+      },
+      {
+        "apiVersion": "0.2.0",
+        "audience": "public",
+        "channel": "branch",
+        "commit": "b8e00b21286854d5d9fedb0665184871f1044a7b",
+        "href": "/catalogs/moco/documents/public-next/",
+        "key": "public-next",
+        "project": "moco",
+        "ref": "refs/heads/main",
+        "repository": "https://github.com/araihu/moco.git",
+        "sha256": "76026942d3dd6cbb22f08f01e7102027c7301a8fc4fe671c48a416b8180876ad",
+        "sourcePath": "openapi/public.yaml",
+        "spec": "public",
+        "version": null
+      },
+      {
+        "apiVersion": "0.9.0",
+        "audience": "internal",
+        "channel": "branch",
+        "commit": "b8e00b21286854d5d9fedb0665184871f1044a7b",
+        "href": "/catalogs/moco/documents/internal-next/",
+        "key": "internal-next",
+        "project": "moco",
+        "ref": "refs/heads/main",
+        "repository": "https://github.com/araihu/moco.git",
+        "sha256": "5fe027f8896cc1c3ae306bd4dc9825b886e7ae5bf6df50cba99679c27017a6b6",
+        "sourcePath": "openapi/internal.yaml",
+        "spec": "internal",
+        "version": null
+      },
+      {
+        "apiVersion": "0.0.2",
+        "audience": "local",
+        "channel": "branch",
+        "commit": "b8d5c010671aaa4d8c080d2a75768a983f119847",
+        "href": "/catalogs/talaria-mem/documents/control-next/",
+        "key": "control-next",
+        "project": "talaria-mem",
+        "ref": "refs/heads/main",
+        "repository": "https://github.com/araihu/talaria-mem.git",
+        "sha256": "29b1b0e081b28527136fcee4b8ac8fa0e3c115b09e0fdc942d0281ed20b4e7ce",
+        "sourcePath": "api/openapi/talaria.yaml",
+        "spec": "control",
+        "version": null
+      },
+      {
+        "apiVersion": "0.1.0",
+        "audience": "public",
+        "channel": "branch",
+        "commit": "68c27ca2d5d0d798c00be3f32c3a82925a882588",
+        "href": "/catalogs/xisnove/documents/public-next/",
+        "key": "public-next",
+        "project": "xisnove",
+        "ref": "refs/heads/main",
+        "repository": "https://github.com/araihu/xisnove.git",
+        "sha256": "6a9f1b20e9a185bf2d53cd15fba43cac0e400b8f0588f8cc441dc3df5d7ba6fa",
+        "sourcePath": "api/openapi.yaml",
+        "spec": "public",
+        "version": null
+      }
+    ],
+    "aliases": {
+      "/catalogs/balemoh/specs/public/branches/main/": "/catalogs/balemoh/documents/public-next/",
+      "/catalogs/balemoh/specs/public/next/": "/catalogs/balemoh/documents/public-next/",
+      "/catalogs/manja/specs/management/branches/main/": "/catalogs/manja/documents/management-next/",
+      "/catalogs/manja/specs/management/latest/": "/catalogs/manja/documents/management-v0.1.1/",
+      "/catalogs/manja/specs/management/next/": "/catalogs/manja/documents/management-next/",
+      "/catalogs/manja/specs/management/versions/0.1.0/": "/catalogs/manja/documents/management-v0.1.0/",
+      "/catalogs/manja/specs/management/versions/0.1.1/": "/catalogs/manja/documents/management-v0.1.1/",
+      "/catalogs/moco/specs/internal/branches/main/": "/catalogs/moco/documents/internal-next/",
+      "/catalogs/moco/specs/internal/next/": "/catalogs/moco/documents/internal-next/",
+      "/catalogs/moco/specs/public/branches/main/": "/catalogs/moco/documents/public-next/",
+      "/catalogs/moco/specs/public/next/": "/catalogs/moco/documents/public-next/",
+      "/catalogs/talaria-mem/specs/control/branches/main/": "/catalogs/talaria-mem/documents/control-next/",
+      "/catalogs/talaria-mem/specs/control/next/": "/catalogs/talaria-mem/documents/control-next/",
+      "/catalogs/xisnove/specs/public/branches/main/": "/catalogs/xisnove/documents/public-next/",
+      "/catalogs/xisnove/specs/public/next/": "/catalogs/xisnove/documents/public-next/"
+    },
+    "status": {
+      "catalogs": 5,
+      "checkedAt": "2026-11-01T14:38:34.304603+00:00",
+      "documents": 8,
+      "generation": "build-z60hkhav",
+      "publishedAt": "2026-11-01T14:39:24.420812+00:00",
+      "servingLastKnownGood": true,
+      "status": "published"
+    }
+  },
+  "credentialAccess": {
+    "organizationSecrets": [
+      "ARAIHU_ASSETS_APP_ID",
+      "ARAIHU_ASSETS_APP_PRIVATE_KEY"
+    ],
+    "selectedRepositories": [
+      "araihu/balemoh",
+      "araihu/moco",
+      "araihu/talaria-mem"
+    ],
+    "existingRepositorySecrets": [
+      "araihu/manja",
+      "araihu/xisnove"
+    ],
+    "notifierTokenPermissions": {
+      "repository": "araihu/oapi",
+      "actions": "write"
+    }
+  },
+  "toolingFix": {
+    "repository": "araihu/xisnove",
+    "rootIndirectTempl": "v0.3.1020",
+    "uiAndSiteTempl": "v0.3.1100",
+    "reason": "Vacuum uses pb33f/doctor generated code that references templ.JoinURLErrs; the root override to v0.3.1100 broke tool compilation."
+  },
+  "cronDiagnostic": {
+    "publisherWorkflow": "https://github.com/araihu/oapi/blob/main/.github/workflows/publish.yml",
+    "canonicalCron": "*/5 * * * *",
+    "canary": {
+      "workflow": "schedule-canary.yml",
+      "registeredAt": "2026-11-01T13:42:10Z",
+      "manualControl": "https://github.com/araihu/oapi/actions/runs/41312535733",
+      "manualControlConclusion": "success",
+      "secrets": false,
+      "checkout": false,
+      "concurrency": false,
+      "disabledAfterObservation": true
+    },
+    "publisherReactivatedAt": "2026-11-01T14:12:12Z",
+    "checkedConfiguration": {
+      "workflowOnDefaultBranch": true,
+      "workflowActive": true,
+      "repositoryActionsEnabled": true,
+      "organizationActionsEnabled": true,
+      "actorMembershipActive": true,
+      "repositoryArchivedOrDisabled": false,
+      "publicStatusIncident": false
+    },
+    "otherRepositoryEvidence": [
+      {
+        "run": "https://github.com/araihu/xisnove/actions/runs/40296684465",
+        "workflowCommit": "6bdfbf3d4c162a2c544589192e9595088e07b415",
+        "cron": "23 3 * * 1",
+        "scheduledFor": "2026-10-26T03:23:00Z",
+        "createdAt": "2026-10-26T09:03:44Z"
+      },
+      {
+        "run": "https://github.com/araihu/xisnove/actions/runs/40313346759",
+        "workflowCommit": "6bdfbf3d4c162a2c544589192e9595088e07b415",
+        "cron": "23 5 * * 1",
+        "scheduledFor": "2026-10-26T05:23:00Z",
+        "createdAt": "2026-10-26T11:12:40Z"
+      }
+    ],
+    "limitation": "GitHub does not expose scheduler registration or non-delivery reasons through the Actions REST API. A successful manual dispatch does not validate schedule delivery.",
+    "observedUntil": "2026-11-01T14:27:18.089441+00:00",
+    "scheduleRunCount": 0,
+    "publicStatus": {
+      "url": "https://www.githubstatus.com/",
+      "indicator": "none",
+      "description": "All Systems Operational",
+      "checkedAt": "2026-11-01T14:27:18.089441+00:00"
+    },
+    "conclusion": "schedule_delivery_not_verified",
+    "publisherObservedUntil": "2026-11-01T14:40:21.860005+00:00",
+    "publisherScheduledRunCountAtFinalValidation": 0
+  }
+}

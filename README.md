@@ -49,8 +49,9 @@ Para adicionar um projeto ou spec, altere o manifesto e abra um PR.
 
 O workflow [Publish OpenAPI catalogs](.github/workflows/publish.yml):
 
-1. Consulta refs Git a cada cinco minutos, em pushes neste repositório, por
-   `workflow_dispatch` ou `repository_dispatch` do tipo `specs-changed`.
+1. Consulta refs Git em pushes neste repositório, por `workflow_dispatch` ou
+   `repository_dispatch` do tipo `specs-changed`. O cron solicita reconciliações
+   a cada cinco minutos; a entrega desse evento depende do scheduler do GitHub.
 2. Compara as refs, configuração e ferramentas com a publicação persistida.
    Quando nada mudou, atualiza a saúde sem instalar Go/Node ou gerar o site.
 3. Fixa objetos Git e commits antes de capturar os arquivos declarados.
@@ -64,35 +65,68 @@ O workflow [Publish OpenAPI catalogs](.github/workflows/publish.yml):
    versões anteriores do Worker. As refs aceitas continuam persistidas e a
    próxima execução tenta publicar novamente.
 
-O agendamento do GitHub é best effort, portanto cinco minutos não é um SLA.
-Um fluxo upstream pode enviar `repository_dispatch` para reduzir a latência;
-o polling funciona sem modificar os repositórios dos projetos.
+O agendamento do GitHub é best effort; cinco minutos não é um SLA. Os gatilhos
+diretos dos produtores são o caminho principal de atualização. Consulte a
+validação operacional antes de considerar o cron um fallback confirmado.
 
 ### Notificação pelo repositório produtor
 
-O [workflow do Manja](https://github.com/araihu/manja/blob/main/.github/workflows/notify-oapi.yml)
-notifica o catálogo quando contratos em `api/` mudam na `main` ou quando uma tag
-`openapi/**` é publicada. Ele também aceita o evento de publicação de releases
-de spec. A notificação usa `workflow_dispatch` com `force: false`: o publicador
-reconsulta as refs canônicas do manifesto e decide se precisa publicar.
+Manja, Balemoh, Mocó, Talaria-Mem e Xisnove notificam o catálogo quando a branch
+`main` altera a raiz de contratos declarada no manifesto, uma tag `openapi/**`
+é enviada ou uma release de spec é publicada. O workflow também aceita disparo
+manual para retries. Releases de produto sem o prefixo `openapi/` são ignoradas.
+
+Os quatro novos produtores chamam o
+[notificador reutilizável](.github/workflows/notify-producer.yml), fixado por SHA.
+Ele envia `workflow_dispatch` com `force: false`: o publicador reconsulta as refs
+canônicas do manifesto e decide se precisa publicar. O Manja mantém seu
+notificador equivalente já validado em produção.
 
 O token é emitido pelo GitHub App de distribuição e dura apenas a execução do
 notificador. Seu escopo é restrito a Actions write em `araihu/oapi`; a notificação
 não exige credenciais do Cloudflare. A instalação do App deve incluir `oapi`,
 e o produtor deve disponibilizar `ARAIHU_ASSETS_APP_ID` e
-`ARAIHU_ASSETS_APP_PRIVATE_KEY` como secrets.
+`ARAIHU_ASSETS_APP_PRIVATE_KEY` como secrets. Os secrets de organização usados
+por Balemoh, Mocó e Talaria-Mem têm acesso limitado a esses três repositórios.
 
-Para adotar esse padrão em outro projeto, use o workflow do Manja como referência,
+Para adicionar um produtor, copie seu `notify-oapi.yml` de um desses projetos,
 ajuste a branch e o filtro de paths para a raiz declarada em `catalogs.json` e
-instale o workflow antes de criar novas tags. Uma reconciliação inicial importa
-também tags anteriores à instalação. O Manja é o primeiro produtor com esse
-gatilho direto; os demais produtores continuam com o polling como gatilho.
+mantenha o workflow reutilizável fixado por SHA. Mudanças na própria definição
+do notificador também disparam reconciliação. Instale o workflow antes de criar
+novas tags; uma reconciliação inicial importa tags anteriores à instalação.
 
 A [validação de produção de 2026-11-01](validation/2026-11-01-management-release.json)
 comprovou atualizações por branch e tag, promoção do `latest`, imutabilidade da
 release anterior e retenção dos arquivos históricos. O cron permaneceu ativo,
 sem execução `schedule` observada nessa janela; o bootstrap de `0.1.0` foi manual
 e os fluxos seguintes foram disparados automaticamente pelo App.
+
+### Diagnóstico do cron
+
+Em 2026-11-01, o publicador estava ativo na branch padrão `main`, Actions estava
+habilitado no repositório e na organização, e o ator tinha associação ativa de
+administrador. Mesmo assim, a API retornava zero execuções com evento `schedule`.
+O teste de controle com `schedule-canary.yml` (sem secrets, checkout ou
+concorrência) executou por `workflow_dispatch`, mas não recebeu eventos agendados
+na janela observada. O cron foi normalizado para `*/5 * * * *` sem comprovação de
+que isso tenha corrigido a entrega. Às 14:12 UTC, o publicador foi desabilitado e
+reabilitado para renovar seu cadastro de agendamento; a API confirmou o estado
+`active` após a operação.
+
+A ausência de runs situa o problema antes dos jobs do publicador. A causa interna
+do scheduler não é exposta pela API; não foi possível atribuí-la a uma
+configuração incorreta nem confirmar um incidente público do GitHub. Duas
+execuções recentes do Xisnove foram criadas entre 5h40 e 5h50 após seus
+horários UTC declarados, reforçando que esse mecanismo não oferece baixa latência.
+
+O cron do publicador permanece habilitado como fallback não confirmado. O
+workflow de diagnóstico foi desabilitado após 45 minutos sem eventos
+agendados e pode ser reabilitado com
+`gh workflow enable schedule-canary.yml --repo araihu/oapi`; desabilite-o
+após observar o comportamento para evitar execuções extras. Um controle manual bem-sucedido não
+comprova que o agendamento funciona. Os gatilhos diretos dos cinco produtores
+independem do scheduler. As evidências de CI, notificações e produção estão na
+[validação do rollout](validation/2026-11-01-producer-notifications.json).
 
 As execuções são serializadas e não cancelam uma publicação em andamento.
 Credenciais de publicação só são usadas pelo workflow de produção em `main`.
