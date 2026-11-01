@@ -1,0 +1,491 @@
+{
+  "accepted": {
+    "aliases": {
+      "/catalogs/balemoh/specs/public/branches/main/": "/catalogs/balemoh/documents/public-next/",
+      "/catalogs/balemoh/specs/public/next/": "/catalogs/balemoh/documents/public-next/",
+      "/catalogs/manja/specs/management/branches/main/": "/catalogs/manja/documents/management-next/",
+      "/catalogs/manja/specs/management/next/": "/catalogs/manja/documents/management-next/",
+      "/catalogs/moco/specs/internal/branches/main/": "/catalogs/moco/documents/internal-next/",
+      "/catalogs/moco/specs/internal/next/": "/catalogs/moco/documents/internal-next/",
+      "/catalogs/moco/specs/public/branches/main/": "/catalogs/moco/documents/public-next/",
+      "/catalogs/moco/specs/public/next/": "/catalogs/moco/documents/public-next/",
+      "/catalogs/talaria-mem/specs/control/branches/main/": "/catalogs/talaria-mem/documents/control-next/",
+      "/catalogs/talaria-mem/specs/control/next/": "/catalogs/talaria-mem/documents/control-next/",
+      "/catalogs/xisnove/specs/public/branches/main/": "/catalogs/xisnove/documents/public-next/",
+      "/catalogs/xisnove/specs/public/next/": "/catalogs/xisnove/documents/public-next/"
+    },
+    "documents": [
+      {
+        "apiVersion": "0.1.0",
+        "audience": "public",
+        "channel": "branch",
+        "commit": "6455744557a447f2381f3eecd0a601f60e945a5e",
+        "href": "/catalogs/balemoh/documents/public-next/",
+        "key": "public-next",
+        "project": "balemoh",
+        "ref": "refs/heads/main",
+        "repository": "https://github.com/araihu/balemoh.git",
+        "sha256": "31e4d9054c6ee04a723979cd7bc43c6ba92f3fd33d74ad16bcf82486fa6dd419",
+        "sourcePath": "api/openapi.yaml",
+        "spec": "public",
+        "version": null
+      },
+      {
+        "apiVersion": "0.1.0",
+        "audience": "internal",
+        "channel": "branch",
+        "commit": "56318e36ec4d1afff6bf4592e38645ed75df78be",
+        "href": "/catalogs/manja/documents/management-next/",
+        "key": "management-next",
+        "project": "manja",
+        "ref": "refs/heads/main",
+        "repository": "https://github.com/araihu/manja.git",
+        "sha256": "947d6c90003408a1fc547390b93b38c50fbe44eecabb3cb26b9cd29ddff47aaa",
+        "sourcePath": "api/openapi.yaml",
+        "spec": "management",
+        "version": null
+      },
+      {
+        "apiVersion": "0.2.0",
+        "audience": "public",
+        "channel": "branch",
+        "commit": "d07ca7a9f2690ffc75e8a6ebf6aaea574daea6f4",
+        "href": "/catalogs/moco/documents/public-next/",
+        "key": "public-next",
+        "project": "moco",
+        "ref": "refs/heads/main",
+        "repository": "https://github.com/araihu/moco.git",
+        "sha256": "76026942d3dd6cbb22f08f01e7102027c7301a8fc4fe671c48a416b8180876ad",
+        "sourcePath": "openapi/public.yaml",
+        "spec": "public",
+        "version": null
+      },
+      {
+        "apiVersion": "0.9.0",
+        "audience": "internal",
+        "channel": "branch",
+        "commit": "d07ca7a9f2690ffc75e8a6ebf6aaea574daea6f4",
+        "href": "/catalogs/moco/documents/internal-next/",
+        "key": "internal-next",
+        "project": "moco",
+        "ref": "refs/heads/main",
+        "repository": "https://github.com/araihu/moco.git",
+        "sha256": "5fe027f8896cc1c3ae306bd4dc9825b886e7ae5bf6df50cba99679c27017a6b6",
+        "sourcePath": "openapi/internal.yaml",
+        "spec": "internal",
+        "version": null
+      },
+      {
+        "apiVersion": "0.0.2",
+        "audience": "local",
+        "channel": "branch",
+        "commit": "91b0293f86f58d63f8899713917203cc00a69956",
+        "href": "/catalogs/talaria-mem/documents/control-next/",
+        "key": "control-next",
+        "project": "talaria-mem",
+        "ref": "refs/heads/main",
+        "repository": "https://github.com/araihu/talaria-mem.git",
+        "sha256": "29b1b0e081b28527136fcee4b8ac8fa0e3c115b09e0fdc942d0281ed20b4e7ce",
+        "sourcePath": "api/openapi/talaria.yaml",
+        "spec": "control",
+        "version": null
+      },
+      {
+        "apiVersion": "0.1.0",
+        "audience": "public",
+        "channel": "branch",
+        "commit": "a36c50c41f213984a60af4e766ac7133d0bd9e6a",
+        "href": "/catalogs/xisnove/documents/public-next/",
+        "key": "public-next",
+        "project": "xisnove",
+        "ref": "refs/heads/main",
+        "repository": "https://github.com/araihu/xisnove.git",
+        "sha256": "6a9f1b20e9a185bf2d53cd15fba43cac0e400b8f0588f8cc441dc3df5d7ba6fa",
+        "sourcePath": "api/openapi.yaml",
+        "spec": "public",
+        "version": null
+      }
+    ],
+    "fingerprint": "5de7e1c5d350cea5dbd7919c4ec8672c043cde984bca7d5521d31b3b06dfe183",
+    "generation": "build-9zcqtndo",
+    "inputs": {
+      "brandAssets": {
+        "assets/brand/araihu.svg": "4cfd0b1f678fa9ef20a5c2241eeb3fcae235988f120fef07f42e3af962cf031b",
+        "assets/brand/balemoh.svg": "3c49d7d9fa2bcb56c66d6eb9e880aa6781ae49ce811fe8b4b60dce61ccc100d7",
+        "assets/brand/manja.svg": "d622096910fa1d2a4d5f64b8d75ade1b3b521f28915e91e70627c52649e9dc1e",
+        "assets/brand/moco.svg": "3f0ad4320f7581ef25ba454596e83ce679d4b633512eb342e41847bdf2702c38",
+        "assets/brand/xisnove.svg": "98ac8f9069dddf94f06752fa2518d8987e45a747d2bc0c8a142d3a4f4fe52523"
+      },
+      "config": {
+        "branding": {
+          "displayName": "Araihu",
+          "logoAlt": "Araihu",
+          "logoFile": "assets/brand/araihu.svg"
+        },
+        "description": "Referências OpenAPI dos projetos Araihu. Cada catálogo reúne suas APIs e versões, incluindo APIs internas.",
+        "projects": [
+          {
+            "developmentRef": "refs/heads/main",
+            "icon": "assets/brand/balemoh.svg",
+            "id": "balemoh",
+            "repository": "https://github.com/araihu/balemoh.git",
+            "root": "api",
+            "specs": [
+              {
+                "audience": "public",
+                "entrypoint": "openapi.yaml",
+                "id": "public"
+              }
+            ],
+            "title": "Balemoh"
+          },
+          {
+            "developmentRef": "refs/heads/main",
+            "icon": "assets/brand/manja.svg",
+            "id": "manja",
+            "repository": "https://github.com/araihu/manja.git",
+            "root": "api",
+            "specs": [
+              {
+                "audience": "internal",
+                "entrypoint": "openapi.yaml",
+                "id": "management"
+              }
+            ],
+            "title": "Manja"
+          },
+          {
+            "developmentRef": "refs/heads/main",
+            "icon": "assets/brand/moco.svg",
+            "id": "moco",
+            "repository": "https://github.com/araihu/moco.git",
+            "root": "openapi",
+            "specs": [
+              {
+                "audience": "public",
+                "entrypoint": "public.yaml",
+                "id": "public"
+              },
+              {
+                "audience": "internal",
+                "entrypoint": "internal.yaml",
+                "id": "internal"
+              }
+            ],
+            "title": "Mocó"
+          },
+          {
+            "developmentRef": "refs/heads/main",
+            "id": "talaria-mem",
+            "repository": "https://github.com/araihu/talaria-mem.git",
+            "root": "api/openapi",
+            "specs": [
+              {
+                "audience": "local",
+                "entrypoint": "talaria.yaml",
+                "id": "control"
+              }
+            ],
+            "title": "Talaria-Mem"
+          },
+          {
+            "developmentRef": "refs/heads/main",
+            "icon": "assets/brand/xisnove.svg",
+            "id": "xisnove",
+            "repository": "https://github.com/araihu/xisnove.git",
+            "root": "api",
+            "specs": [
+              {
+                "audience": "public",
+                "entrypoint": "openapi.yaml",
+                "id": "public"
+              }
+            ],
+            "title": "Xisnove"
+          }
+        ],
+        "schemaVersion": 1,
+        "title": "Araihu · APIs"
+      },
+      "deployment": {
+        ".github/workflows/publish.yml": "94d300a1b959b21726e0c2eeb67e1c31006f14ceff764357d25bde95281a8770",
+        "deploy.py": "8b63041797c4aca2ba2d163b02053be6bd470618dac0a4a62ae4eba03453a284",
+        "package-lock.json": "2869f4b2f1e26085ab0b0f44ca379a42f5d2c8ee47efdbdcf657902b5b24c3db",
+        "requirements.txt": "0969da99a0bc2a1b71ed50584560f4588a37567ac63af3ddbaf3c4617ca5621a",
+        "setup.sh": "e6559cf4334e1cef0672477aa43eb259b49d658210b2ac1cb69cd2959e8f5e3b",
+        "worker.js": "e0f72ecc88b35891de1fb69ab58f55dbc4c12be7e46d126d17f71679492dbb68",
+        "wrangler.jsonc": "f623a61ab8353c7e6c543c8e4fef45ac3407b87379e938ede2ef32606548f45c"
+      },
+      "origin": "https://oapi.araihu.com",
+      "publisher": "f2a1fdc2740491b3fcdffe0e910b7444b860a317426d04a43e0c07ec3cd3a7a0",
+      "redocly": "2.65.0",
+      "refs": {
+        "balemoh": {
+          "refs/heads/main": "6455744557a447f2381f3eecd0a601f60e945a5e"
+        },
+        "manja": {
+          "refs/heads/main": "56318e36ec4d1afff6bf4592e38645ed75df78be"
+        },
+        "moco": {
+          "refs/heads/main": "d07ca7a9f2690ffc75e8a6ebf6aaea574daea6f4"
+        },
+        "talaria-mem": {
+          "refs/heads/main": "91b0293f86f58d63f8899713917203cc00a69956"
+        },
+        "xisnove": {
+          "refs/heads/main": "a36c50c41f213984a60af4e766ac7133d0bd9e6a"
+        }
+      },
+      "renderer": "6dde03b07870c52ccd6950a2bbf2480e73c176b343b3856e53274b18d0b6d1a2"
+    },
+    "manjaRevision": "56318e36ec4d1afff6bf4592e38645ed75df78be",
+    "publishedAt": "2026-11-01T08:45:23.748405+00:00",
+    "releases": {},
+    "schemaVersion": 1
+  },
+  "checkedAt": "2026-11-01T08:45:36.697435+00:00",
+  "deployed": {
+    "aliases": {
+      "/catalogs/balemoh/specs/public/branches/main/": "/catalogs/balemoh/documents/public-next/",
+      "/catalogs/balemoh/specs/public/next/": "/catalogs/balemoh/documents/public-next/",
+      "/catalogs/manja/specs/management/branches/main/": "/catalogs/manja/documents/management-next/",
+      "/catalogs/manja/specs/management/next/": "/catalogs/manja/documents/management-next/",
+      "/catalogs/moco/specs/internal/branches/main/": "/catalogs/moco/documents/internal-next/",
+      "/catalogs/moco/specs/internal/next/": "/catalogs/moco/documents/internal-next/",
+      "/catalogs/moco/specs/public/branches/main/": "/catalogs/moco/documents/public-next/",
+      "/catalogs/moco/specs/public/next/": "/catalogs/moco/documents/public-next/",
+      "/catalogs/talaria-mem/specs/control/branches/main/": "/catalogs/talaria-mem/documents/control-next/",
+      "/catalogs/talaria-mem/specs/control/next/": "/catalogs/talaria-mem/documents/control-next/",
+      "/catalogs/xisnove/specs/public/branches/main/": "/catalogs/xisnove/documents/public-next/",
+      "/catalogs/xisnove/specs/public/next/": "/catalogs/xisnove/documents/public-next/"
+    },
+    "documents": [
+      {
+        "apiVersion": "0.1.0",
+        "audience": "public",
+        "channel": "branch",
+        "commit": "6455744557a447f2381f3eecd0a601f60e945a5e",
+        "href": "/catalogs/balemoh/documents/public-next/",
+        "key": "public-next",
+        "project": "balemoh",
+        "ref": "refs/heads/main",
+        "repository": "https://github.com/araihu/balemoh.git",
+        "sha256": "31e4d9054c6ee04a723979cd7bc43c6ba92f3fd33d74ad16bcf82486fa6dd419",
+        "sourcePath": "api/openapi.yaml",
+        "spec": "public",
+        "version": null
+      },
+      {
+        "apiVersion": "0.1.0",
+        "audience": "internal",
+        "channel": "branch",
+        "commit": "56318e36ec4d1afff6bf4592e38645ed75df78be",
+        "href": "/catalogs/manja/documents/management-next/",
+        "key": "management-next",
+        "project": "manja",
+        "ref": "refs/heads/main",
+        "repository": "https://github.com/araihu/manja.git",
+        "sha256": "947d6c90003408a1fc547390b93b38c50fbe44eecabb3cb26b9cd29ddff47aaa",
+        "sourcePath": "api/openapi.yaml",
+        "spec": "management",
+        "version": null
+      },
+      {
+        "apiVersion": "0.2.0",
+        "audience": "public",
+        "channel": "branch",
+        "commit": "d07ca7a9f2690ffc75e8a6ebf6aaea574daea6f4",
+        "href": "/catalogs/moco/documents/public-next/",
+        "key": "public-next",
+        "project": "moco",
+        "ref": "refs/heads/main",
+        "repository": "https://github.com/araihu/moco.git",
+        "sha256": "76026942d3dd6cbb22f08f01e7102027c7301a8fc4fe671c48a416b8180876ad",
+        "sourcePath": "openapi/public.yaml",
+        "spec": "public",
+        "version": null
+      },
+      {
+        "apiVersion": "0.9.0",
+        "audience": "internal",
+        "channel": "branch",
+        "commit": "d07ca7a9f2690ffc75e8a6ebf6aaea574daea6f4",
+        "href": "/catalogs/moco/documents/internal-next/",
+        "key": "internal-next",
+        "project": "moco",
+        "ref": "refs/heads/main",
+        "repository": "https://github.com/araihu/moco.git",
+        "sha256": "5fe027f8896cc1c3ae306bd4dc9825b886e7ae5bf6df50cba99679c27017a6b6",
+        "sourcePath": "openapi/internal.yaml",
+        "spec": "internal",
+        "version": null
+      },
+      {
+        "apiVersion": "0.0.2",
+        "audience": "local",
+        "channel": "branch",
+        "commit": "91b0293f86f58d63f8899713917203cc00a69956",
+        "href": "/catalogs/talaria-mem/documents/control-next/",
+        "key": "control-next",
+        "project": "talaria-mem",
+        "ref": "refs/heads/main",
+        "repository": "https://github.com/araihu/talaria-mem.git",
+        "sha256": "29b1b0e081b28527136fcee4b8ac8fa0e3c115b09e0fdc942d0281ed20b4e7ce",
+        "sourcePath": "api/openapi/talaria.yaml",
+        "spec": "control",
+        "version": null
+      },
+      {
+        "apiVersion": "0.1.0",
+        "audience": "public",
+        "channel": "branch",
+        "commit": "a36c50c41f213984a60af4e766ac7133d0bd9e6a",
+        "href": "/catalogs/xisnove/documents/public-next/",
+        "key": "public-next",
+        "project": "xisnove",
+        "ref": "refs/heads/main",
+        "repository": "https://github.com/araihu/xisnove.git",
+        "sha256": "6a9f1b20e9a185bf2d53cd15fba43cac0e400b8f0588f8cc441dc3df5d7ba6fa",
+        "sourcePath": "api/openapi.yaml",
+        "spec": "public",
+        "version": null
+      }
+    ],
+    "fingerprint": "5de7e1c5d350cea5dbd7919c4ec8672c043cde984bca7d5521d31b3b06dfe183",
+    "generation": "build-9zcqtndo",
+    "inputs": {
+      "brandAssets": {
+        "assets/brand/araihu.svg": "4cfd0b1f678fa9ef20a5c2241eeb3fcae235988f120fef07f42e3af962cf031b",
+        "assets/brand/balemoh.svg": "3c49d7d9fa2bcb56c66d6eb9e880aa6781ae49ce811fe8b4b60dce61ccc100d7",
+        "assets/brand/manja.svg": "d622096910fa1d2a4d5f64b8d75ade1b3b521f28915e91e70627c52649e9dc1e",
+        "assets/brand/moco.svg": "3f0ad4320f7581ef25ba454596e83ce679d4b633512eb342e41847bdf2702c38",
+        "assets/brand/xisnove.svg": "98ac8f9069dddf94f06752fa2518d8987e45a747d2bc0c8a142d3a4f4fe52523"
+      },
+      "config": {
+        "branding": {
+          "displayName": "Araihu",
+          "logoAlt": "Araihu",
+          "logoFile": "assets/brand/araihu.svg"
+        },
+        "description": "Referências OpenAPI dos projetos Araihu. Cada catálogo reúne suas APIs e versões, incluindo APIs internas.",
+        "projects": [
+          {
+            "developmentRef": "refs/heads/main",
+            "icon": "assets/brand/balemoh.svg",
+            "id": "balemoh",
+            "repository": "https://github.com/araihu/balemoh.git",
+            "root": "api",
+            "specs": [
+              {
+                "audience": "public",
+                "entrypoint": "openapi.yaml",
+                "id": "public"
+              }
+            ],
+            "title": "Balemoh"
+          },
+          {
+            "developmentRef": "refs/heads/main",
+            "icon": "assets/brand/manja.svg",
+            "id": "manja",
+            "repository": "https://github.com/araihu/manja.git",
+            "root": "api",
+            "specs": [
+              {
+                "audience": "internal",
+                "entrypoint": "openapi.yaml",
+                "id": "management"
+              }
+            ],
+            "title": "Manja"
+          },
+          {
+            "developmentRef": "refs/heads/main",
+            "icon": "assets/brand/moco.svg",
+            "id": "moco",
+            "repository": "https://github.com/araihu/moco.git",
+            "root": "openapi",
+            "specs": [
+              {
+                "audience": "public",
+                "entrypoint": "public.yaml",
+                "id": "public"
+              },
+              {
+                "audience": "internal",
+                "entrypoint": "internal.yaml",
+                "id": "internal"
+              }
+            ],
+            "title": "Mocó"
+          },
+          {
+            "developmentRef": "refs/heads/main",
+            "id": "talaria-mem",
+            "repository": "https://github.com/araihu/talaria-mem.git",
+            "root": "api/openapi",
+            "specs": [
+              {
+                "audience": "local",
+                "entrypoint": "talaria.yaml",
+                "id": "control"
+              }
+            ],
+            "title": "Talaria-Mem"
+          },
+          {
+            "developmentRef": "refs/heads/main",
+            "icon": "assets/brand/xisnove.svg",
+            "id": "xisnove",
+            "repository": "https://github.com/araihu/xisnove.git",
+            "root": "api",
+            "specs": [
+              {
+                "audience": "public",
+                "entrypoint": "openapi.yaml",
+                "id": "public"
+              }
+            ],
+            "title": "Xisnove"
+          }
+        ],
+        "schemaVersion": 1,
+        "title": "Araihu · APIs"
+      },
+      "deployment": {
+        ".github/workflows/publish.yml": "94d300a1b959b21726e0c2eeb67e1c31006f14ceff764357d25bde95281a8770",
+        "deploy.py": "8b63041797c4aca2ba2d163b02053be6bd470618dac0a4a62ae4eba03453a284",
+        "package-lock.json": "2869f4b2f1e26085ab0b0f44ca379a42f5d2c8ee47efdbdcf657902b5b24c3db",
+        "requirements.txt": "0969da99a0bc2a1b71ed50584560f4588a37567ac63af3ddbaf3c4617ca5621a",
+        "setup.sh": "e6559cf4334e1cef0672477aa43eb259b49d658210b2ac1cb69cd2959e8f5e3b",
+        "worker.js": "e0f72ecc88b35891de1fb69ab58f55dbc4c12be7e46d126d17f71679492dbb68",
+        "wrangler.jsonc": "f623a61ab8353c7e6c543c8e4fef45ac3407b87379e938ede2ef32606548f45c"
+      },
+      "origin": "https://oapi.araihu.com",
+      "publisher": "f2a1fdc2740491b3fcdffe0e910b7444b860a317426d04a43e0c07ec3cd3a7a0",
+      "redocly": "2.65.0",
+      "refs": {
+        "balemoh": {
+          "refs/heads/main": "6455744557a447f2381f3eecd0a601f60e945a5e"
+        },
+        "manja": {
+          "refs/heads/main": "56318e36ec4d1afff6bf4592e38645ed75df78be"
+        },
+        "moco": {
+          "refs/heads/main": "d07ca7a9f2690ffc75e8a6ebf6aaea574daea6f4"
+        },
+        "talaria-mem": {
+          "refs/heads/main": "91b0293f86f58d63f8899713917203cc00a69956"
+        },
+        "xisnove": {
+          "refs/heads/main": "a36c50c41f213984a60af4e766ac7133d0bd9e6a"
+        }
+      },
+      "renderer": "6dde03b07870c52ccd6950a2bbf2480e73c176b343b3856e53274b18d0b6d1a2"
+    },
+    "manjaRevision": "56318e36ec4d1afff6bf4592e38645ed75df78be",
+    "publishedAt": "2026-11-01T08:45:23.748405+00:00",
+    "releases": {},
+    "schemaVersion": 1
+  }
+}
