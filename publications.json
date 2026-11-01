@@ -4,7 +4,9 @@
       "/catalogs/balemoh/specs/public/branches/main/": "/catalogs/balemoh/documents/public-next/",
       "/catalogs/balemoh/specs/public/next/": "/catalogs/balemoh/documents/public-next/",
       "/catalogs/manja/specs/management/branches/main/": "/catalogs/manja/documents/management-next/",
+      "/catalogs/manja/specs/management/latest/": "/catalogs/manja/documents/management-v0.1.0/",
       "/catalogs/manja/specs/management/next/": "/catalogs/manja/documents/management-next/",
+      "/catalogs/manja/specs/management/versions/0.1.0/": "/catalogs/manja/documents/management-v0.1.0/",
       "/catalogs/moco/specs/internal/branches/main/": "/catalogs/moco/documents/internal-next/",
       "/catalogs/moco/specs/internal/next/": "/catalogs/moco/documents/internal-next/",
       "/catalogs/moco/specs/public/branches/main/": "/catalogs/moco/documents/public-next/",
@@ -44,6 +46,21 @@
         "sourcePath": "api/openapi.yaml",
         "spec": "management",
         "version": null
+      },
+      {
+        "apiVersion": "0.1.0",
+        "audience": "internal",
+        "channel": "release",
+        "commit": "56318e36ec4d1afff6bf4592e38645ed75df78be",
+        "href": "/catalogs/manja/documents/management-v0.1.0/",
+        "key": "management-v0.1.0",
+        "project": "manja",
+        "ref": "refs/tags/openapi/management/v0.1.0",
+        "repository": "https://github.com/araihu/manja.git",
+        "sha256": "947d6c90003408a1fc547390b93b38c50fbe44eecabb3cb26b9cd29ddff47aaa",
+        "sourcePath": "api/openapi.yaml",
+        "spec": "management",
+        "version": "0.1.0"
       },
       {
         "apiVersion": "0.2.0",
@@ -106,8 +123,8 @@
         "version": null
       }
     ],
-    "fingerprint": "2bb9c5e79028762ef7a693970f6ae447ad6ee0e2fe377b42216a8f8ee4508a47",
-    "generation": "build-3jaldcdd",
+    "fingerprint": "ff1a387a595cb7dc12f5b05cd831cf8cf17a23afdd706f8f4918295892c05db5",
+    "generation": "build-lqrt5k0f",
     "inputs": {
       "brandAssets": {
         "assets/brand/araihu.svg": "4cfd0b1f678fa9ef20a5c2241eeb3fcae235988f120fef07f42e3af962cf031b",
@@ -208,7 +225,7 @@
         "title": "Araihu · APIs"
       },
       "deployment": {
-        ".github/workflows/publish.yml": "949c0d83fbebfd5650faa4e33c8af324a7b42f36b804e7bd091c9d9ef1bc533f",
+        ".github/workflows/publish.yml": "d7f14ea4e497679e3504068ce33fe8b86061ffaa7c969bba3bc784c76f7a7392",
         "deploy.py": "8b63041797c4aca2ba2d163b02053be6bd470618dac0a4a62ae4eba03453a284",
         "package-lock.json": "2869f4b2f1e26085ab0b0f44ca379a42f5d2c8ee47efdbdcf657902b5b24c3db",
         "requirements.txt": "0969da99a0bc2a1b71ed50584560f4588a37567ac63af3ddbaf3c4617ca5621a",
@@ -224,7 +241,8 @@
           "refs/heads/main": "6455744557a447f2381f3eecd0a601f60e945a5e"
         },
         "manja": {
-          "refs/heads/main": "56318e36ec4d1afff6bf4592e38645ed75df78be"
+          "refs/heads/main": "56318e36ec4d1afff6bf4592e38645ed75df78be",
+          "refs/tags/openapi/management/v0.1.0": "2afbe23abefed0d4feb2521e7cbb5c099098348e"
         },
         "moco": {
           "refs/heads/main": "d07ca7a9f2690ffc75e8a6ebf6aaea574daea6f4"
@@ -239,17 +257,29 @@
       "renderer": "6dde03b07870c52ccd6950a2bbf2480e73c176b343b3856e53274b18d0b6d1a2"
     },
     "manjaRevision": "56318e36ec4d1afff6bf4592e38645ed75df78be",
-    "publishedAt": "2026-11-01T08:53:04.716672+00:00",
-    "releases": {},
+    "publishedAt": "2026-11-01T09:58:14.575958+00:00",
+    "releases": {
+      "manja:refs/tags/openapi/management/v0.1.0": {
+        "commit": "56318e36ec4d1afff6bf4592e38645ed75df78be",
+        "ref": "refs/tags/openapi/management/v0.1.0",
+        "releaseId": "manja:refs/tags/openapi/management/v0.1.0",
+        "sha256": "947d6c90003408a1fc547390b93b38c50fbe44eecabb3cb26b9cd29ddff47aaa",
+        "spec": "management",
+        "tagObject": "2afbe23abefed0d4feb2521e7cbb5c099098348e",
+        "version": "0.1.0"
+      }
+    },
     "schemaVersion": 1
   },
-  "checkedAt": "2026-11-01T08:53:15.940719+00:00",
+  "checkedAt": "2026-11-01T09:58:26.486978+00:00",
   "deployed": {
     "aliases": {
       "/catalogs/balemoh/specs/public/branches/main/": "/catalogs/balemoh/documents/public-next/",
       "/catalogs/balemoh/specs/public/next/": "/catalogs/balemoh/documents/public-next/",
       "/catalogs/manja/specs/management/branches/main/": "/catalogs/manja/documents/management-next/",
+      "/catalogs/manja/specs/management/latest/": "/catalogs/manja/documents/management-v0.1.0/",
       "/catalogs/manja/specs/management/next/": "/catalogs/manja/documents/management-next/",
+      "/catalogs/manja/specs/management/versions/0.1.0/": "/catalogs/manja/documents/management-v0.1.0/",
       "/catalogs/moco/specs/internal/branches/main/": "/catalogs/moco/documents/internal-next/",
       "/catalogs/moco/specs/internal/next/": "/catalogs/moco/documents/internal-next/",
       "/catalogs/moco/specs/public/branches/main/": "/catalogs/moco/documents/public-next/",
@@ -289,6 +319,21 @@
         "sourcePath": "api/openapi.yaml",
         "spec": "management",
         "version": null
+      },
+      {
+        "apiVersion": "0.1.0",
+        "audience": "internal",
+        "channel": "release",
+        "commit": "56318e36ec4d1afff6bf4592e38645ed75df78be",
+        "href": "/catalogs/manja/documents/management-v0.1.0/",
+        "key": "management-v0.1.0",
+        "project": "manja",
+        "ref": "refs/tags/openapi/management/v0.1.0",
+        "repository": "https://github.com/araihu/manja.git",
+        "sha256": "947d6c90003408a1fc547390b93b38c50fbe44eecabb3cb26b9cd29ddff47aaa",
+        "sourcePath": "api/openapi.yaml",
+        "spec": "management",
+        "version": "0.1.0"
       },
       {
         "apiVersion": "0.2.0",
@@ -351,8 +396,8 @@
         "version": null
       }
     ],
-    "fingerprint": "2bb9c5e79028762ef7a693970f6ae447ad6ee0e2fe377b42216a8f8ee4508a47",
-    "generation": "build-3jaldcdd",
+    "fingerprint": "ff1a387a595cb7dc12f5b05cd831cf8cf17a23afdd706f8f4918295892c05db5",
+    "generation": "build-lqrt5k0f",
     "inputs": {
       "brandAssets": {
         "assets/brand/araihu.svg": "4cfd0b1f678fa9ef20a5c2241eeb3fcae235988f120fef07f42e3af962cf031b",
@@ -453,7 +498,7 @@
         "title": "Araihu · APIs"
       },
       "deployment": {
-        ".github/workflows/publish.yml": "949c0d83fbebfd5650faa4e33c8af324a7b42f36b804e7bd091c9d9ef1bc533f",
+        ".github/workflows/publish.yml": "d7f14ea4e497679e3504068ce33fe8b86061ffaa7c969bba3bc784c76f7a7392",
         "deploy.py": "8b63041797c4aca2ba2d163b02053be6bd470618dac0a4a62ae4eba03453a284",
         "package-lock.json": "2869f4b2f1e26085ab0b0f44ca379a42f5d2c8ee47efdbdcf657902b5b24c3db",
         "requirements.txt": "0969da99a0bc2a1b71ed50584560f4588a37567ac63af3ddbaf3c4617ca5621a",
@@ -469,7 +514,8 @@
           "refs/heads/main": "6455744557a447f2381f3eecd0a601f60e945a5e"
         },
         "manja": {
-          "refs/heads/main": "56318e36ec4d1afff6bf4592e38645ed75df78be"
+          "refs/heads/main": "56318e36ec4d1afff6bf4592e38645ed75df78be",
+          "refs/tags/openapi/management/v0.1.0": "2afbe23abefed0d4feb2521e7cbb5c099098348e"
         },
         "moco": {
           "refs/heads/main": "d07ca7a9f2690ffc75e8a6ebf6aaea574daea6f4"
@@ -484,8 +530,18 @@
       "renderer": "6dde03b07870c52ccd6950a2bbf2480e73c176b343b3856e53274b18d0b6d1a2"
     },
     "manjaRevision": "56318e36ec4d1afff6bf4592e38645ed75df78be",
-    "publishedAt": "2026-11-01T08:53:04.716672+00:00",
-    "releases": {},
+    "publishedAt": "2026-11-01T09:58:14.575958+00:00",
+    "releases": {
+      "manja:refs/tags/openapi/management/v0.1.0": {
+        "commit": "56318e36ec4d1afff6bf4592e38645ed75df78be",
+        "ref": "refs/tags/openapi/management/v0.1.0",
+        "releaseId": "manja:refs/tags/openapi/management/v0.1.0",
+        "sha256": "947d6c90003408a1fc547390b93b38c50fbe44eecabb3cb26b9cd29ddff47aaa",
+        "spec": "management",
+        "tagObject": "2afbe23abefed0d4feb2521e7cbb5c099098348e",
+        "version": "0.1.0"
+      }
+    },
     "schemaVersion": 1
   }
 }
