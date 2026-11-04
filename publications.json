@@ -22,13 +22,13 @@
         "apiVersion": "0.1.0",
         "audience": "public",
         "channel": "branch",
-        "commit": "f987f706d94d0577f78312cc419ff754fe81de1f",
+        "commit": "ba18b64a96cf3df0a60b5b6aaa61d0be523300d3",
         "href": "/catalogs/balemoh/documents/public-next/",
         "key": "public-next",
         "project": "balemoh",
         "ref": "refs/heads/main",
         "repository": "https://github.com/araihu/balemoh.git",
-        "sha256": "6196822dc3a6cf0f60a9b9a91d81768ccc2b6dbedf0cedbde5f5c181da2d8eb5",
+        "sha256": "ec57842ff00f9897d2e4a45a35d8922fc1107ac5bf18a71a13c5439807ab8a0a",
         "sourcePath": "api/openapi.yaml",
         "spec": "public",
         "version": null
@@ -139,8 +139,8 @@
         "version": null
       }
     ],
-    "fingerprint": "c769604fa4dcbd83069fa87d7a96ef180894224c6944877dccbdb8ce13025eff",
-    "generation": "build-re2g_ef2",
+    "fingerprint": "242b2ef1eee69abfa2f951d678777b320a1fe636c9e9588895b042a16f8c63a4",
+    "generation": "build-xhadmp33",
     "inputs": {
       "brandAssets": {
         "assets/brand/araihu.svg": "4cfd0b1f678fa9ef20a5c2241eeb3fcae235988f120fef07f42e3af962cf031b",
@@ -254,7 +254,7 @@
       "redocly": "2.65.0",
       "refs": {
         "balemoh": {
-          "refs/heads/main": "f987f706d94d0577f78312cc419ff754fe81de1f"
+          "refs/heads/main": "ba18b64a96cf3df0a60b5b6aaa61d0be523300d3"
         },
         "manja": {
           "refs/heads/main": "248bb94fe12e40f17facfdc574acb5a803cc84c8",
@@ -274,7 +274,7 @@
       "renderer": "6dde03b07870c52ccd6950a2bbf2480e73c176b343b3856e53274b18d0b6d1a2"
     },
     "manjaRevision": "56318e36ec4d1afff6bf4592e38645ed75df78be",
-    "publishedAt": "2026-11-03T20:16:16.486402+00:00",
+    "publishedAt": "2026-11-04T08:48:21.899777+00:00",
     "releases": {
       "manja:refs/tags/openapi/management/v0.1.0": {
         "commit": "56318e36ec4d1afff6bf4592e38645ed75df78be",
@@ -297,7 +297,7 @@
     },
     "schemaVersion": 1
   },
-  "checkedAt": "2026-11-03T20:16:38.327374+00:00",
+  "checkedAt": "2026-11-04T08:48:35.687873+00:00",
   "deployed": {
     "aliases": {
       "/catalogs/balemoh/specs/public/branches/main/": "/catalogs/balemoh/documents/public-next/",
@@ -321,13 +321,13 @@
         "apiVersion": "0.1.0",
         "audience": "public",
         "channel": "branch",
-        "commit": "f987f706d94d0577f78312cc419ff754fe81de1f",
+        "commit": "ba18b64a96cf3df0a60b5b6aaa61d0be523300d3",
         "href": "/catalogs/balemoh/documents/public-next/",
         "key": "public-next",
         "project": "balemoh",
         "ref": "refs/heads/main",
         "repository": "https://github.com/araihu/balemoh.git",
-        "sha256": "6196822dc3a6cf0f60a9b9a91d81768ccc2b6dbedf0cedbde5f5c181da2d8eb5",
+        "sha256": "ec57842ff00f9897d2e4a45a35d8922fc1107ac5bf18a71a13c5439807ab8a0a",
         "sourcePath": "api/openapi.yaml",
         "spec": "public",
         "version": null
@@ -438,8 +438,8 @@
         "version": null
       }
     ],
-    "fingerprint": "c769604fa4dcbd83069fa87d7a96ef180894224c6944877dccbdb8ce13025eff",
-    "generation": "build-re2g_ef2",
+    "fingerprint": "242b2ef1eee69abfa2f951d678777b320a1fe636c9e9588895b042a16f8c63a4",
+    "generation": "build-xhadmp33",
     "inputs": {
       "brandAssets": {
         "assets/brand/araihu.svg": "4cfd0b1f678fa9ef20a5c2241eeb3fcae235988f120fef07f42e3af962cf031b",
@@ -553,7 +553,7 @@
       "redocly": "2.65.0",
       "refs": {
         "balemoh": {
-          "refs/heads/main": "f987f706d94d0577f78312cc419ff754fe81de1f"
+          "refs/heads/main": "ba18b64a96cf3df0a60b5b6aaa61d0be523300d3"
         },
         "manja": {
           "refs/heads/main": "248bb94fe12e40f17facfdc574acb5a803cc84c8",
@@ -573,7 +573,7 @@
       "renderer": "6dde03b07870c52ccd6950a2bbf2480e73c176b343b3856e53274b18d0b6d1a2"
     },
     "manjaRevision": "56318e36ec4d1afff6bf4592e38645ed75df78be",
-    "publishedAt": "2026-11-03T20:16:16.486402+00:00",
+    "publishedAt": "2026-11-04T08:48:21.899777+00:00",
     "releases": {
       "manja:refs/tags/openapi/management/v0.1.0": {
         "commit": "56318e36ec4d1afff6bf4592e38645ed75df78be",
