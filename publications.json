@@ -22,7 +22,7 @@
         "apiVersion": "0.1.0",
         "audience": "public",
         "channel": "branch",
-        "commit": "9f4a19da86755978f0b633b2cf8bba9873a8f80b",
+        "commit": "379f647cf0de164f9eb03f8e7d8c238d6fd8ba51",
         "href": "/catalogs/balemoh/documents/public-next/",
         "key": "public-next",
         "project": "balemoh",
@@ -139,8 +139,8 @@
         "version": null
       }
     ],
-    "fingerprint": "849d68678092f480ed94fd89bccbb015603a5fe79c4b7630573af14374ccf1c1",
-    "generation": "build-kjmq3qrl",
+    "fingerprint": "9f52625eeb33721b082e3a429c7d100176ea52b590780a32fc6c4c0d81f6c4a3",
+    "generation": "build-2yg0p3m1",
     "inputs": {
       "brandAssets": {
         "assets/brand/araihu.svg": "4cfd0b1f678fa9ef20a5c2241eeb3fcae235988f120fef07f42e3af962cf031b",
@@ -254,7 +254,7 @@
       "redocly": "2.65.0",
       "refs": {
         "balemoh": {
-          "refs/heads/main": "9f4a19da86755978f0b633b2cf8bba9873a8f80b"
+          "refs/heads/main": "379f647cf0de164f9eb03f8e7d8c238d6fd8ba51"
         },
         "manja": {
           "refs/heads/main": "a65fa33706160c2e0f7fcf3a1d8441409b3260f9",
@@ -274,7 +274,7 @@
       "renderer": "6dde03b07870c52ccd6950a2bbf2480e73c176b343b3856e53274b18d0b6d1a2"
     },
     "manjaRevision": "56318e36ec4d1afff6bf4592e38645ed75df78be",
-    "publishedAt": "2026-11-05T13:28:23.063273+00:00",
+    "publishedAt": "2026-11-06T05:08:12.418137+00:00",
     "releases": {
       "manja:refs/tags/openapi/management/v0.1.0": {
         "commit": "56318e36ec4d1afff6bf4592e38645ed75df78be",
@@ -297,7 +297,7 @@
     },
     "schemaVersion": 1
   },
-  "checkedAt": "2026-11-05T13:28:36.214194+00:00",
+  "checkedAt": "2026-11-06T05:08:27.055014+00:00",
   "deployed": {
     "aliases": {
       "/catalogs/balemoh/specs/public/branches/main/": "/catalogs/balemoh/documents/public-next/",
@@ -321,7 +321,7 @@
         "apiVersion": "0.1.0",
         "audience": "public",
         "channel": "branch",
-        "commit": "9f4a19da86755978f0b633b2cf8bba9873a8f80b",
+        "commit": "379f647cf0de164f9eb03f8e7d8c238d6fd8ba51",
         "href": "/catalogs/balemoh/documents/public-next/",
         "key": "public-next",
         "project": "balemoh",
@@ -438,8 +438,8 @@
         "version": null
       }
     ],
-    "fingerprint": "849d68678092f480ed94fd89bccbb015603a5fe79c4b7630573af14374ccf1c1",
-    "generation": "build-kjmq3qrl",
+    "fingerprint": "9f52625eeb33721b082e3a429c7d100176ea52b590780a32fc6c4c0d81f6c4a3",
+    "generation": "build-2yg0p3m1",
     "inputs": {
       "brandAssets": {
         "assets/brand/araihu.svg": "4cfd0b1f678fa9ef20a5c2241eeb3fcae235988f120fef07f42e3af962cf031b",
@@ -553,7 +553,7 @@
       "redocly": "2.65.0",
       "refs": {
         "balemoh": {
-          "refs/heads/main": "9f4a19da86755978f0b633b2cf8bba9873a8f80b"
+          "refs/heads/main": "379f647cf0de164f9eb03f8e7d8c238d6fd8ba51"
         },
         "manja": {
           "refs/heads/main": "a65fa33706160c2e0f7fcf3a1d8441409b3260f9",
@@ -573,7 +573,7 @@
       "renderer": "6dde03b07870c52ccd6950a2bbf2480e73c176b343b3856e53274b18d0b6d1a2"
     },
     "manjaRevision": "56318e36ec4d1afff6bf4592e38645ed75df78be",
-    "publishedAt": "2026-11-05T13:28:23.063273+00:00",
+    "publishedAt": "2026-11-06T05:08:12.418137+00:00",
     "releases": {
       "manja:refs/tags/openapi/management/v0.1.0": {
         "commit": "56318e36ec4d1afff6bf4592e38645ed75df78be",
