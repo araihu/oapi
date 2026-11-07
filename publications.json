@@ -127,7 +127,7 @@
         "apiVersion": "0.1.0",
         "audience": "public",
         "channel": "branch",
-        "commit": "68c27ca2d5d0d798c00be3f32c3a82925a882588",
+        "commit": "06978bb77fa5060a10eabdf329121ba4af042dea",
         "href": "/catalogs/xisnove/documents/public-next/",
         "key": "public-next",
         "project": "xisnove",
@@ -139,8 +139,8 @@
         "version": null
       }
     ],
-    "fingerprint": "6ba08e4d709b7655d14b382cc21d2b58d837018933e60ed7fb3cd362b71837c1",
-    "generation": "build-s9kserwv",
+    "fingerprint": "6e7d6628d7776e5717822cddbc5e7c172fbc455f365708e1fd8941cd5ae9bcc8",
+    "generation": "build-lxbt3n_t",
     "inputs": {
       "brandAssets": {
         "assets/brand/araihu.svg": "4cfd0b1f678fa9ef20a5c2241eeb3fcae235988f120fef07f42e3af962cf031b",
@@ -268,13 +268,13 @@
           "refs/heads/main": "b8d5c010671aaa4d8c080d2a75768a983f119847"
         },
         "xisnove": {
-          "refs/heads/main": "68c27ca2d5d0d798c00be3f32c3a82925a882588"
+          "refs/heads/main": "06978bb77fa5060a10eabdf329121ba4af042dea"
         }
       },
       "renderer": "6dde03b07870c52ccd6950a2bbf2480e73c176b343b3856e53274b18d0b6d1a2"
     },
     "manjaRevision": "56318e36ec4d1afff6bf4592e38645ed75df78be",
-    "publishedAt": "2026-11-06T15:26:38.975559+00:00",
+    "publishedAt": "2026-11-07T12:07:47.872855+00:00",
     "releases": {
       "manja:refs/tags/openapi/management/v0.1.0": {
         "commit": "56318e36ec4d1afff6bf4592e38645ed75df78be",
@@ -297,7 +297,7 @@
     },
     "schemaVersion": 1
   },
-  "checkedAt": "2026-11-06T15:26:53.786034+00:00",
+  "checkedAt": "2026-11-07T12:07:59.629155+00:00",
   "deployed": {
     "aliases": {
       "/catalogs/balemoh/specs/public/branches/main/": "/catalogs/balemoh/documents/public-next/",
@@ -426,7 +426,7 @@
         "apiVersion": "0.1.0",
         "audience": "public",
         "channel": "branch",
-        "commit": "68c27ca2d5d0d798c00be3f32c3a82925a882588",
+        "commit": "06978bb77fa5060a10eabdf329121ba4af042dea",
         "href": "/catalogs/xisnove/documents/public-next/",
         "key": "public-next",
         "project": "xisnove",
@@ -438,8 +438,8 @@
         "version": null
       }
     ],
-    "fingerprint": "6ba08e4d709b7655d14b382cc21d2b58d837018933e60ed7fb3cd362b71837c1",
-    "generation": "build-s9kserwv",
+    "fingerprint": "6e7d6628d7776e5717822cddbc5e7c172fbc455f365708e1fd8941cd5ae9bcc8",
+    "generation": "build-lxbt3n_t",
     "inputs": {
       "brandAssets": {
         "assets/brand/araihu.svg": "4cfd0b1f678fa9ef20a5c2241eeb3fcae235988f120fef07f42e3af962cf031b",
@@ -567,13 +567,13 @@
           "refs/heads/main": "b8d5c010671aaa4d8c080d2a75768a983f119847"
         },
         "xisnove": {
-          "refs/heads/main": "68c27ca2d5d0d798c00be3f32c3a82925a882588"
+          "refs/heads/main": "06978bb77fa5060a10eabdf329121ba4af042dea"
         }
       },
       "renderer": "6dde03b07870c52ccd6950a2bbf2480e73c176b343b3856e53274b18d0b6d1a2"
     },
     "manjaRevision": "56318e36ec4d1afff6bf4592e38645ed75df78be",
-    "publishedAt": "2026-11-06T15:26:38.975559+00:00",
+    "publishedAt": "2026-11-07T12:07:47.872855+00:00",
     "releases": {
       "manja:refs/tags/openapi/management/v0.1.0": {
         "commit": "56318e36ec4d1afff6bf4592e38645ed75df78be",
