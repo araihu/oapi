@@ -114,7 +114,7 @@
         "apiVersion": "0.30.0",
         "audience": "local",
         "channel": "branch",
-        "commit": "e87ea75b0dac62915c0b4e7fe8cb49d01ecc6692",
+        "commit": "4280f507ae0f73ebdd5520dac637817a9c5b931e",
         "href": "/catalogs/oie/documents/engine-next/",
         "key": "engine-next",
         "project": "oie",
@@ -156,8 +156,8 @@
         "version": null
       }
     ],
-    "fingerprint": "01762b2077f55c11bad43bf122c79748d6e67f38a771c2cc6f69257dde38d439",
-    "generation": "build-_iqyam9q",
+    "fingerprint": "162c6c60d32af7167b00744070370de7a3ef53914b3028b634261391ad6be9e7",
+    "generation": "build-dd8_faff",
     "inputs": {
       "brandAssets": {
         "assets/brand/araihu.svg": "4cfd0b1f678fa9ef20a5c2241eeb3fcae235988f120fef07f42e3af962cf031b",
@@ -298,7 +298,7 @@
           "refs/heads/main": "b8e00b21286854d5d9fedb0665184871f1044a7b"
         },
         "oie": {
-          "refs/heads/main": "e87ea75b0dac62915c0b4e7fe8cb49d01ecc6692"
+          "refs/heads/main": "4280f507ae0f73ebdd5520dac637817a9c5b931e"
         },
         "talaria-mem": {
           "refs/heads/main": "b8d5c010671aaa4d8c080d2a75768a983f119847"
@@ -310,7 +310,7 @@
       "renderer": "593430432664054466218f0336ba0904daea91407342624984e268bafe59db39"
     },
     "manjaRevision": "56318e36ec4d1afff6bf4592e38645ed75df78be",
-    "publishedAt": "2026-11-13T04:00:21.831913+00:00",
+    "publishedAt": "2026-11-13T04:19:31.361837+00:00",
     "releases": {
       "manja:refs/tags/openapi/management/v0.1.0": {
         "commit": "56318e36ec4d1afff6bf4592e38645ed75df78be",
@@ -333,7 +333,7 @@
     },
     "schemaVersion": 1
   },
-  "checkedAt": "2026-11-13T04:00:51.742481+00:00",
+  "checkedAt": "2026-11-13T04:19:45.712490+00:00",
   "deployed": {
     "aliases": {
       "/catalogs/balemoh/specs/public/branches/main/": "/catalogs/balemoh/documents/public-next/",
@@ -449,7 +449,7 @@
         "apiVersion": "0.30.0",
         "audience": "local",
         "channel": "branch",
-        "commit": "e87ea75b0dac62915c0b4e7fe8cb49d01ecc6692",
+        "commit": "4280f507ae0f73ebdd5520dac637817a9c5b931e",
         "href": "/catalogs/oie/documents/engine-next/",
         "key": "engine-next",
         "project": "oie",
@@ -491,8 +491,8 @@
         "version": null
       }
     ],
-    "fingerprint": "01762b2077f55c11bad43bf122c79748d6e67f38a771c2cc6f69257dde38d439",
-    "generation": "build-_iqyam9q",
+    "fingerprint": "162c6c60d32af7167b00744070370de7a3ef53914b3028b634261391ad6be9e7",
+    "generation": "build-dd8_faff",
     "inputs": {
       "brandAssets": {
         "assets/brand/araihu.svg": "4cfd0b1f678fa9ef20a5c2241eeb3fcae235988f120fef07f42e3af962cf031b",
@@ -633,7 +633,7 @@
           "refs/heads/main": "b8e00b21286854d5d9fedb0665184871f1044a7b"
         },
         "oie": {
-          "refs/heads/main": "e87ea75b0dac62915c0b4e7fe8cb49d01ecc6692"
+          "refs/heads/main": "4280f507ae0f73ebdd5520dac637817a9c5b931e"
         },
         "talaria-mem": {
           "refs/heads/main": "b8d5c010671aaa4d8c080d2a75768a983f119847"
@@ -645,7 +645,7 @@
       "renderer": "593430432664054466218f0336ba0904daea91407342624984e268bafe59db39"
     },
     "manjaRevision": "56318e36ec4d1afff6bf4592e38645ed75df78be",
-    "publishedAt": "2026-11-13T04:00:21.831913+00:00",
+    "publishedAt": "2026-11-13T04:19:31.361837+00:00",
     "releases": {
       "manja:refs/tags/openapi/management/v0.1.0": {
         "commit": "56318e36ec4d1afff6bf4592e38645ed75df78be",
