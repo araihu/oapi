@@ -53,6 +53,21 @@
       "icon": "assets/brand/moco.svg"
     },
     {
+      "id": "oie",
+      "title": "Oiê",
+      "repository": "https://github.com/araihu/oie.git",
+      "developmentRef": "refs/heads/main",
+      "root": "api",
+      "specs": [
+        {
+          "id": "engine",
+          "entrypoint": "openapi.yaml",
+          "audience": "local"
+        }
+      ],
+      "icon": "assets/brand/oie.svg"
+    },
+    {
       "id": "talaria-mem",
       "title": "Talaria-Mem",
       "repository": "https://github.com/araihu/talaria-mem.git",

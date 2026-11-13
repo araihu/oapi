@@ -39,6 +39,7 @@ Um nome de versão deve caber na chave de documento do Manja, de até 64 caracte
 | Balemoh | `public` | `api` | `main` |
 | Manja | `management` (internal) | `api` | `main` |
 | Mocó | `public`, `internal` | `openapi` | `main` |
+| Oiê | `engine` (local) | `api` | `main` |
 | Talaria-Mem | `control` (local) | `api/openapi` | `main` |
 | Xisnove | `public` | `api` | `main` |
 
