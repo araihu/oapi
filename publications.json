@@ -13,7 +13,9 @@
       "/catalogs/moco/specs/public/branches/main/": "/catalogs/moco/documents/public-next/",
       "/catalogs/moco/specs/public/next/": "/catalogs/moco/documents/public-next/",
       "/catalogs/oie/specs/engine/branches/main/": "/catalogs/oie/documents/engine-next/",
+      "/catalogs/oie/specs/engine/latest/": "/catalogs/oie/documents/engine-v0.30.0/",
       "/catalogs/oie/specs/engine/next/": "/catalogs/oie/documents/engine-next/",
+      "/catalogs/oie/specs/engine/versions/0.30.0/": "/catalogs/oie/documents/engine-v0.30.0/",
       "/catalogs/talaria-mem/specs/control/branches/main/": "/catalogs/talaria-mem/documents/control-next/",
       "/catalogs/talaria-mem/specs/control/next/": "/catalogs/talaria-mem/documents/control-next/",
       "/catalogs/xisnove/specs/public/branches/main/": "/catalogs/xisnove/documents/public-next/",
@@ -114,7 +116,7 @@
         "apiVersion": "0.30.0",
         "audience": "local",
         "channel": "branch",
-        "commit": "4280f507ae0f73ebdd5520dac637817a9c5b931e",
+        "commit": "713234d523519e7ec01bbdebddb41a0166654a51",
         "href": "/catalogs/oie/documents/engine-next/",
         "key": "engine-next",
         "project": "oie",
@@ -124,6 +126,21 @@
         "sourcePath": "api/openapi.yaml",
         "spec": "engine",
         "version": null
+      },
+      {
+        "apiVersion": "0.30.0",
+        "audience": "local",
+        "channel": "release",
+        "commit": "713234d523519e7ec01bbdebddb41a0166654a51",
+        "href": "/catalogs/oie/documents/engine-v0.30.0/",
+        "key": "engine-v0.30.0",
+        "project": "oie",
+        "ref": "refs/tags/openapi/engine/v0.30.0",
+        "repository": "https://github.com/araihu/oie.git",
+        "sha256": "b4226d510a608c78d35c20587e4fea2e58a3d26de7673b3a1d342e2e0e8ba7c5",
+        "sourcePath": "api/openapi.yaml",
+        "spec": "engine",
+        "version": "0.30.0"
       },
       {
         "apiVersion": "0.0.2",
@@ -156,8 +173,8 @@
         "version": null
       }
     ],
-    "fingerprint": "162c6c60d32af7167b00744070370de7a3ef53914b3028b634261391ad6be9e7",
-    "generation": "build-dd8_faff",
+    "fingerprint": "06010ec4844ff37137ff861fb8aafd14a3794c36baa8ca9da06ad0417534565f",
+    "generation": "build-wsd2usqr",
     "inputs": {
       "brandAssets": {
         "assets/brand/araihu.svg": "4cfd0b1f678fa9ef20a5c2241eeb3fcae235988f120fef07f42e3af962cf031b",
@@ -298,7 +315,8 @@
           "refs/heads/main": "b8e00b21286854d5d9fedb0665184871f1044a7b"
         },
         "oie": {
-          "refs/heads/main": "4280f507ae0f73ebdd5520dac637817a9c5b931e"
+          "refs/heads/main": "713234d523519e7ec01bbdebddb41a0166654a51",
+          "refs/tags/openapi/engine/v0.30.0": "5756c61a61be02e71070eb24fab76ba937f6879c"
         },
         "talaria-mem": {
           "refs/heads/main": "b8d5c010671aaa4d8c080d2a75768a983f119847"
@@ -310,7 +328,7 @@
       "renderer": "593430432664054466218f0336ba0904daea91407342624984e268bafe59db39"
     },
     "manjaRevision": "56318e36ec4d1afff6bf4592e38645ed75df78be",
-    "publishedAt": "2026-11-13T04:19:31.361837+00:00",
+    "publishedAt": "2026-11-13T05:09:37.381457+00:00",
     "releases": {
       "manja:refs/tags/openapi/management/v0.1.0": {
         "commit": "56318e36ec4d1afff6bf4592e38645ed75df78be",
@@ -329,11 +347,20 @@
         "spec": "management",
         "tagObject": "9031cb28421cbb963acb830d000455cdf0438589",
         "version": "0.1.1"
+      },
+      "oie:refs/tags/openapi/engine/v0.30.0": {
+        "commit": "713234d523519e7ec01bbdebddb41a0166654a51",
+        "ref": "refs/tags/openapi/engine/v0.30.0",
+        "releaseId": "oie:refs/tags/openapi/engine/v0.30.0",
+        "sha256": "b4226d510a608c78d35c20587e4fea2e58a3d26de7673b3a1d342e2e0e8ba7c5",
+        "spec": "engine",
+        "tagObject": "5756c61a61be02e71070eb24fab76ba937f6879c",
+        "version": "0.30.0"
       }
     },
     "schemaVersion": 1
   },
-  "checkedAt": "2026-11-13T04:19:45.712490+00:00",
+  "checkedAt": "2026-11-13T05:09:53.691149+00:00",
   "deployed": {
     "aliases": {
       "/catalogs/balemoh/specs/public/branches/main/": "/catalogs/balemoh/documents/public-next/",
@@ -348,7 +375,9 @@
       "/catalogs/moco/specs/public/branches/main/": "/catalogs/moco/documents/public-next/",
       "/catalogs/moco/specs/public/next/": "/catalogs/moco/documents/public-next/",
       "/catalogs/oie/specs/engine/branches/main/": "/catalogs/oie/documents/engine-next/",
+      "/catalogs/oie/specs/engine/latest/": "/catalogs/oie/documents/engine-v0.30.0/",
       "/catalogs/oie/specs/engine/next/": "/catalogs/oie/documents/engine-next/",
+      "/catalogs/oie/specs/engine/versions/0.30.0/": "/catalogs/oie/documents/engine-v0.30.0/",
       "/catalogs/talaria-mem/specs/control/branches/main/": "/catalogs/talaria-mem/documents/control-next/",
       "/catalogs/talaria-mem/specs/control/next/": "/catalogs/talaria-mem/documents/control-next/",
       "/catalogs/xisnove/specs/public/branches/main/": "/catalogs/xisnove/documents/public-next/",
@@ -449,7 +478,7 @@
         "apiVersion": "0.30.0",
         "audience": "local",
         "channel": "branch",
-        "commit": "4280f507ae0f73ebdd5520dac637817a9c5b931e",
+        "commit": "713234d523519e7ec01bbdebddb41a0166654a51",
         "href": "/catalogs/oie/documents/engine-next/",
         "key": "engine-next",
         "project": "oie",
@@ -459,6 +488,21 @@
         "sourcePath": "api/openapi.yaml",
         "spec": "engine",
         "version": null
+      },
+      {
+        "apiVersion": "0.30.0",
+        "audience": "local",
+        "channel": "release",
+        "commit": "713234d523519e7ec01bbdebddb41a0166654a51",
+        "href": "/catalogs/oie/documents/engine-v0.30.0/",
+        "key": "engine-v0.30.0",
+        "project": "oie",
+        "ref": "refs/tags/openapi/engine/v0.30.0",
+        "repository": "https://github.com/araihu/oie.git",
+        "sha256": "b4226d510a608c78d35c20587e4fea2e58a3d26de7673b3a1d342e2e0e8ba7c5",
+        "sourcePath": "api/openapi.yaml",
+        "spec": "engine",
+        "version": "0.30.0"
       },
       {
         "apiVersion": "0.0.2",
@@ -491,8 +535,8 @@
         "version": null
       }
     ],
-    "fingerprint": "162c6c60d32af7167b00744070370de7a3ef53914b3028b634261391ad6be9e7",
-    "generation": "build-dd8_faff",
+    "fingerprint": "06010ec4844ff37137ff861fb8aafd14a3794c36baa8ca9da06ad0417534565f",
+    "generation": "build-wsd2usqr",
     "inputs": {
       "brandAssets": {
         "assets/brand/araihu.svg": "4cfd0b1f678fa9ef20a5c2241eeb3fcae235988f120fef07f42e3af962cf031b",
@@ -633,7 +677,8 @@
           "refs/heads/main": "b8e00b21286854d5d9fedb0665184871f1044a7b"
         },
         "oie": {
-          "refs/heads/main": "4280f507ae0f73ebdd5520dac637817a9c5b931e"
+          "refs/heads/main": "713234d523519e7ec01bbdebddb41a0166654a51",
+          "refs/tags/openapi/engine/v0.30.0": "5756c61a61be02e71070eb24fab76ba937f6879c"
         },
         "talaria-mem": {
           "refs/heads/main": "b8d5c010671aaa4d8c080d2a75768a983f119847"
@@ -645,7 +690,7 @@
       "renderer": "593430432664054466218f0336ba0904daea91407342624984e268bafe59db39"
     },
     "manjaRevision": "56318e36ec4d1afff6bf4592e38645ed75df78be",
-    "publishedAt": "2026-11-13T04:19:31.361837+00:00",
+    "publishedAt": "2026-11-13T05:09:37.381457+00:00",
     "releases": {
       "manja:refs/tags/openapi/management/v0.1.0": {
         "commit": "56318e36ec4d1afff6bf4592e38645ed75df78be",
@@ -664,6 +709,15 @@
         "spec": "management",
         "tagObject": "9031cb28421cbb963acb830d000455cdf0438589",
         "version": "0.1.1"
+      },
+      "oie:refs/tags/openapi/engine/v0.30.0": {
+        "commit": "713234d523519e7ec01bbdebddb41a0166654a51",
+        "ref": "refs/tags/openapi/engine/v0.30.0",
+        "releaseId": "oie:refs/tags/openapi/engine/v0.30.0",
+        "sha256": "b4226d510a608c78d35c20587e4fea2e58a3d26de7673b3a1d342e2e0e8ba7c5",
+        "spec": "engine",
+        "tagObject": "5756c61a61be02e71070eb24fab76ba937f6879c",
+        "version": "0.30.0"
       }
     },
     "schemaVersion": 1
