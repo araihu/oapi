@@ -24,6 +24,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parent
 MANJA_REVISION = "56318e36ec4d1afff6bf4592e38645ed75df78be"
+MANJA_EXPORT_TIMEOUT_SECONDS = 600
 REDOCLY_VERSION = "2.65.0"
 VERSION = re.compile(r"(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?\Z")
 SLUG = re.compile(r"[a-z][a-z0-9-]{0,24}\Z")
@@ -455,7 +456,12 @@ class Publisher:
             if self.origin.startswith("https://"):
                 config["organization"]["seo"] = {"canonicalBase": self.origin}
             write_json(generation / "renderer.yaml", config)
-            export = run([self.binary, "export", "--renderer-config", generation / "renderer.yaml", "--data-dir", generation / "data", "--output", generation / "public", "--base-path", "/", "--fragment-workers", "4"])
+            export = run(
+                [self.binary, "export", "--renderer-config", generation / "renderer.yaml",
+                 "--data-dir", generation / "data", "--output", generation / "public",
+                 "--base-path", "/", "--fragment-workers", "4"],
+                timeout=MANJA_EXPORT_TIMEOUT_SECONDS,
+            )
             write_json(generation / "export-receipt.json", json.loads(export))
             verification = run([self.binary, "export", "verify", "--output", generation / "public"])
             write_json(generation / "verify-receipt.json", json.loads(verification))
