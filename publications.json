@@ -114,16 +114,16 @@
         "version": null
       },
       {
-        "apiVersion": "0.32.0",
+        "apiVersion": "0.33.0",
         "audience": "local",
         "channel": "branch",
-        "commit": "48090057513b2eab83d526d44df1d7764ac16a0b",
+        "commit": "505f6c90632a68eea50db9dae92c55e2d533ed13",
         "href": "/catalogs/oie/documents/engine-next/",
         "key": "engine-next",
         "project": "oie",
         "ref": "refs/heads/main",
         "repository": "https://github.com/araihu/oie.git",
-        "sha256": "9dca0684e1310be87238f0ba82c10a7aabeb7de6897ed23502048aa2f35f0bd3",
+        "sha256": "f35fc0cc338891f853d5a04e43a576d5bca15947dcad45ab65b4e686bc7355a4",
         "sourcePath": "api/openapi.yaml",
         "spec": "engine",
         "version": null
@@ -189,8 +189,8 @@
         "version": null
       }
     ],
-    "fingerprint": "199eb1116d4084e6acb0493343b6b54514cc5a3d8878d484e78e2e851b922e83",
-    "generation": "build-emqxy1az",
+    "fingerprint": "df5f138a9623c6022c89cd3d2f3fff2f3cbeaba7af25c625a1fc828b59a11478",
+    "generation": "build-ny0rabak",
     "inputs": {
       "brandAssets": {
         "assets/brand/araihu.svg": "4cfd0b1f678fa9ef20a5c2241eeb3fcae235988f120fef07f42e3af962cf031b",
@@ -331,7 +331,7 @@
           "refs/heads/main": "b8e00b21286854d5d9fedb0665184871f1044a7b"
         },
         "oie": {
-          "refs/heads/main": "48090057513b2eab83d526d44df1d7764ac16a0b",
+          "refs/heads/main": "505f6c90632a68eea50db9dae92c55e2d533ed13",
           "refs/tags/openapi/engine/v0.30.0": "5756c61a61be02e71070eb24fab76ba937f6879c",
           "refs/tags/openapi/engine/v0.30.1": "604f2deab01720605f4d6f9feffbccb27109c6f1"
         },
@@ -345,7 +345,7 @@
       "renderer": "593430432664054466218f0336ba0904daea91407342624984e268bafe59db39"
     },
     "manjaRevision": "56318e36ec4d1afff6bf4592e38645ed75df78be",
-    "publishedAt": "2026-11-15T00:17:54.901920+00:00",
+    "publishedAt": "2026-11-15T01:27:28.228681+00:00",
     "releases": {
       "manja:refs/tags/openapi/management/v0.1.0": {
         "commit": "56318e36ec4d1afff6bf4592e38645ed75df78be",
@@ -386,7 +386,7 @@
     },
     "schemaVersion": 1
   },
-  "checkedAt": "2026-11-15T00:18:11.393256+00:00",
+  "checkedAt": "2026-11-15T01:27:44.919367+00:00",
   "deployed": {
     "aliases": {
       "/catalogs/balemoh/specs/public/branches/main/": "/catalogs/balemoh/documents/public-next/",
@@ -502,16 +502,16 @@
         "version": null
       },
       {
-        "apiVersion": "0.32.0",
+        "apiVersion": "0.33.0",
         "audience": "local",
         "channel": "branch",
-        "commit": "48090057513b2eab83d526d44df1d7764ac16a0b",
+        "commit": "505f6c90632a68eea50db9dae92c55e2d533ed13",
         "href": "/catalogs/oie/documents/engine-next/",
         "key": "engine-next",
         "project": "oie",
         "ref": "refs/heads/main",
         "repository": "https://github.com/araihu/oie.git",
-        "sha256": "9dca0684e1310be87238f0ba82c10a7aabeb7de6897ed23502048aa2f35f0bd3",
+        "sha256": "f35fc0cc338891f853d5a04e43a576d5bca15947dcad45ab65b4e686bc7355a4",
         "sourcePath": "api/openapi.yaml",
         "spec": "engine",
         "version": null
@@ -577,8 +577,8 @@
         "version": null
       }
     ],
-    "fingerprint": "199eb1116d4084e6acb0493343b6b54514cc5a3d8878d484e78e2e851b922e83",
-    "generation": "build-emqxy1az",
+    "fingerprint": "df5f138a9623c6022c89cd3d2f3fff2f3cbeaba7af25c625a1fc828b59a11478",
+    "generation": "build-ny0rabak",
     "inputs": {
       "brandAssets": {
         "assets/brand/araihu.svg": "4cfd0b1f678fa9ef20a5c2241eeb3fcae235988f120fef07f42e3af962cf031b",
@@ -719,7 +719,7 @@
           "refs/heads/main": "b8e00b21286854d5d9fedb0665184871f1044a7b"
         },
         "oie": {
-          "refs/heads/main": "48090057513b2eab83d526d44df1d7764ac16a0b",
+          "refs/heads/main": "505f6c90632a68eea50db9dae92c55e2d533ed13",
           "refs/tags/openapi/engine/v0.30.0": "5756c61a61be02e71070eb24fab76ba937f6879c",
           "refs/tags/openapi/engine/v0.30.1": "604f2deab01720605f4d6f9feffbccb27109c6f1"
         },
@@ -733,7 +733,7 @@
       "renderer": "593430432664054466218f0336ba0904daea91407342624984e268bafe59db39"
     },
     "manjaRevision": "56318e36ec4d1afff6bf4592e38645ed75df78be",
-    "publishedAt": "2026-11-15T00:17:54.901920+00:00",
+    "publishedAt": "2026-11-15T01:27:28.228681+00:00",
     "releases": {
       "manja:refs/tags/openapi/management/v0.1.0": {
         "commit": "56318e36ec4d1afff6bf4592e38645ed75df78be",
