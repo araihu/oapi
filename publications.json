@@ -117,7 +117,7 @@
         "apiVersion": "0.34.0",
         "audience": "local",
         "channel": "branch",
-        "commit": "68f530a8f9da8039f46a0c8eb9cdbf700298ea1f",
+        "commit": "5b78c3f6f00c1674c115a8626852aecf4e3e4f52",
         "href": "/catalogs/oie/documents/engine-next/",
         "key": "engine-next",
         "project": "oie",
@@ -189,8 +189,8 @@
         "version": null
       }
     ],
-    "fingerprint": "92b0fb2fffc99f56835d4194d87c185fc07de4a15c78fe6e244f218351719faf",
-    "generation": "build-5_d52cee",
+    "fingerprint": "ce5aae230f7ab48b76f258cf993c6efacea5f20745f09cd2d86a2a2d287fdd4f",
+    "generation": "build-1klm7ac1",
     "inputs": {
       "brandAssets": {
         "assets/brand/araihu.svg": "4cfd0b1f678fa9ef20a5c2241eeb3fcae235988f120fef07f42e3af962cf031b",
@@ -331,7 +331,7 @@
           "refs/heads/main": "b8e00b21286854d5d9fedb0665184871f1044a7b"
         },
         "oie": {
-          "refs/heads/main": "68f530a8f9da8039f46a0c8eb9cdbf700298ea1f",
+          "refs/heads/main": "5b78c3f6f00c1674c115a8626852aecf4e3e4f52",
           "refs/tags/openapi/engine/v0.30.0": "5756c61a61be02e71070eb24fab76ba937f6879c",
           "refs/tags/openapi/engine/v0.30.1": "604f2deab01720605f4d6f9feffbccb27109c6f1"
         },
@@ -345,7 +345,7 @@
       "renderer": "593430432664054466218f0336ba0904daea91407342624984e268bafe59db39"
     },
     "manjaRevision": "56318e36ec4d1afff6bf4592e38645ed75df78be",
-    "publishedAt": "2026-11-15T22:22:56.965884+00:00",
+    "publishedAt": "2026-11-15T23:01:07.518909+00:00",
     "releases": {
       "manja:refs/tags/openapi/management/v0.1.0": {
         "commit": "56318e36ec4d1afff6bf4592e38645ed75df78be",
@@ -386,7 +386,7 @@
     },
     "schemaVersion": 1
   },
-  "checkedAt": "2026-11-15T22:23:13.643349+00:00",
+  "checkedAt": "2026-11-15T23:01:22.789893+00:00",
   "deployed": {
     "aliases": {
       "/catalogs/balemoh/specs/public/branches/main/": "/catalogs/balemoh/documents/public-next/",
@@ -505,7 +505,7 @@
         "apiVersion": "0.34.0",
         "audience": "local",
         "channel": "branch",
-        "commit": "68f530a8f9da8039f46a0c8eb9cdbf700298ea1f",
+        "commit": "5b78c3f6f00c1674c115a8626852aecf4e3e4f52",
         "href": "/catalogs/oie/documents/engine-next/",
         "key": "engine-next",
         "project": "oie",
@@ -577,8 +577,8 @@
         "version": null
       }
     ],
-    "fingerprint": "92b0fb2fffc99f56835d4194d87c185fc07de4a15c78fe6e244f218351719faf",
-    "generation": "build-5_d52cee",
+    "fingerprint": "ce5aae230f7ab48b76f258cf993c6efacea5f20745f09cd2d86a2a2d287fdd4f",
+    "generation": "build-1klm7ac1",
     "inputs": {
       "brandAssets": {
         "assets/brand/araihu.svg": "4cfd0b1f678fa9ef20a5c2241eeb3fcae235988f120fef07f42e3af962cf031b",
@@ -719,7 +719,7 @@
           "refs/heads/main": "b8e00b21286854d5d9fedb0665184871f1044a7b"
         },
         "oie": {
-          "refs/heads/main": "68f530a8f9da8039f46a0c8eb9cdbf700298ea1f",
+          "refs/heads/main": "5b78c3f6f00c1674c115a8626852aecf4e3e4f52",
           "refs/tags/openapi/engine/v0.30.0": "5756c61a61be02e71070eb24fab76ba937f6879c",
           "refs/tags/openapi/engine/v0.30.1": "604f2deab01720605f4d6f9feffbccb27109c6f1"
         },
@@ -733,7 +733,7 @@
       "renderer": "593430432664054466218f0336ba0904daea91407342624984e268bafe59db39"
     },
     "manjaRevision": "56318e36ec4d1afff6bf4592e38645ed75df78be",
-    "publishedAt": "2026-11-15T22:22:56.965884+00:00",
+    "publishedAt": "2026-11-15T23:01:07.518909+00:00",
     "releases": {
       "manja:refs/tags/openapi/management/v0.1.0": {
         "commit": "56318e36ec4d1afff6bf4592e38645ed75df78be",
