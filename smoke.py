@@ -12,6 +12,10 @@ from deploy import ORIGIN
 from publisher import ROOT, digest, read_json
 
 
+class PublicationMismatch(RuntimeError):
+    pass
+
+
 def fetch(path):
     request = Request(ORIGIN + quote(path, safe="/%"), headers={"Cache-Control": "no-cache"})
     for attempt in range(8):
@@ -35,8 +39,10 @@ class SearchMetadata(HTMLParser):
             self.attributes = attributes
 
 
-def main():
+def verify_publication(expected_generation=None, expected_export=None):
     registry = json.loads(fetch("/publications.json"))
+    if expected_generation is not None and registry["generation"] != expected_generation:
+        raise PublicationMismatch("Public catalog has not reached the expected generation")
     expected = {p["id"] for p in read_json(ROOT / "catalogs.json")["projects"]}
     actual = {d["project"] for d in registry["documents"]}
     if actual != expected:
@@ -55,7 +61,10 @@ def main():
         child = fetch(catalog["childBase"] + catalog["directoryPath"])
         if digest(child) != catalog["directorySha256"]:
             raise RuntimeError("Catalog search directory digest mismatch")
-    export = json.loads(fetch("/_manja/export.json"))
+    export_bytes = fetch("/_manja/export.json")
+    if expected_export is not None and export_bytes != expected_export:
+        raise PublicationMismatch("Public export inventory differs from the staged export")
+    export = json.loads(export_bytes)
     # Verify source download bytes against the exact export inventory, including
     # internal APIs. No API server is contacted by these documentation checks.
     inventory = {item["path"]: item for item in export["files"]}
@@ -73,7 +82,7 @@ def main():
         data = fetch(path)
         item = inventory[path.lstrip("/") + "index.html"]
         if digest(data) != item["sha256"] or len(data) != item["length"]:
-            raise RuntimeError("Published HTML differs from verified export: " + path)
+            raise PublicationMismatch("Published HTML differs from verified export: " + path)
 
     with ThreadPoolExecutor(max_workers=6) as pool:
         list(pool.map(check_page, sorted(paths | {"/"})))
@@ -82,6 +91,22 @@ def main():
     if health.get("status") not in {"published", "unchanged", "publishing"}:
         raise RuntimeError("Publication is not healthy: " + json.dumps(health))
     print(json.dumps({"domain": ORIGIN, "generation": registry["generation"], "catalogs": len(expected), "documents": len(registry["documents"]), "sourceDownloadsVerified": len(sources), "globalSearchVerified": True, "htmlDigestsVerified": True}))
+
+
+def main():
+    pending = read_json(ROOT / ".state/pending.json")
+    generation = pending["registry"]["generation"] if pending else None
+    export = (ROOT / ".state/deploy/_manja/export.json").read_bytes() if pending else None
+    for attempt in range(8):
+        try:
+            verify_publication(generation, export)
+            return
+        except PublicationMismatch as error:
+            if attempt == 7:
+                raise
+            delay = min(2 ** attempt, 15)
+            print(f"{error}; retrying in {delay}s", flush=True)
+            time.sleep(delay)
 
 
 if __name__ == "__main__":
