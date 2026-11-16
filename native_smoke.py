@@ -57,11 +57,20 @@ def github_fixture(public_key):
         def do_GET(self):
             calls.append(("GET", self.path, None))
             assert self.headers["Authorization"] == "Bearer native-fixture-token"
-            assert "/runs?" in self.path
+            if self.path.startswith("/repos/araihu/oapi/actions/runs/456/jobs?"):
+                result = {"total_count": 0}
+            else:
+                assert "/runs?" in self.path
+                result = {"workflow_runs": []}
+                if "status=queued&" in self.path:
+                    result["workflow_runs"].append({
+                        "id": 456, "updated_at": "2026-01-01T00:00:00Z",
+                        "html_url": "https://github.com/araihu/oapi/actions/runs/456",
+                    })
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
             self.end_headers()
-            self.wfile.write(b'{"workflow_runs":[]}')
+            self.wfile.write(json.dumps(result).encode())
 
         def do_DELETE(self):
             calls.append(("DELETE", self.path, None))
@@ -176,7 +185,8 @@ def main():
                 assert fetch(scheduled)[0] == 200
                 dispatched = json.loads(fetch("/reconciliation.json")[2])
                 assert dispatched["status"] == "dispatched" and dispatched["lastDispatchedAt"]
-                assert len(calls) == 8 and calls[-1][0] == "DELETE"
+                assert dispatched["ignoredQueuedRuns"] == [456]
+                assert len(calls) == 9 and calls[-1][0] == "DELETE"
                 assert not any("native-fixture-token" in str(value) for value in dispatched.values())
                 before = len(calls)
                 control["redirect"] = True

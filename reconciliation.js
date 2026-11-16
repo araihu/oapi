@@ -1,5 +1,7 @@
 const API = 'https://api.github.com';
-const WORKFLOW = '/repos/araihu/oapi/actions/workflows/publish.yml';
+const ACTIONS = '/repos/araihu/oapi/actions';
+const WORKFLOW = ACTIONS + '/workflows/publish.yml';
+const QUEUED_WITHOUT_JOBS_MS = 60 * 60 * 1000;
 const HEALTH_KEY = 'reconciliation';
 
 class ReconciliationError extends Error {}
@@ -50,6 +52,16 @@ async function github(request, path, token, method = 'GET', body) {
   return response;
 }
 
+async function isStaleQueuedRun(request, token, run, staleBefore) {
+  if (!Number.isSafeInteger(run.id) || !(Date.parse(run.updated_at) <= staleBefore)) return false;
+  const response = await github(request, `${ACTIONS}/runs/${run.id}/jobs?per_page=1`, token);
+  const { total_count: count } = await response.json();
+  if (!Number.isSafeInteger(count) || count < 0) {
+    throw new ReconciliationError('GitHub returned an invalid workflow job count');
+  }
+  return count === 0;
+}
+
 export async function reconcile(controller, env, request = fetch) {
   const prior = await env.HISTORY.prepare('SELECT value FROM metadata WHERE key=?').bind(HEALTH_KEY).first();
   const previous = prior ? JSON.parse(prior.value) : {};
@@ -78,15 +90,24 @@ export async function reconcile(controller, env, request = fetch) {
     ({ token } = await response.json());
     if (typeof token !== 'string' || !token) throw new ReconciliationError('GitHub did not issue an installation token');
 
-    // Query each status explicitly so a burst of completed runs cannot hide an active publication.
+    // Keep status filters so completed runs cannot hide an active publication.
+    const staleBefore = Date.parse(state.attemptedAt) - QUEUED_WITHOUT_JOBS_MS;
     for (const status of ['in_progress', 'queued', 'waiting', 'pending', 'requested']) {
-      const response = await github(request, `${WORKFLOW}/runs?branch=main&status=${status}&per_page=1`, token);
-      const runs = await response.json();
-      if (!Array.isArray(runs.workflow_runs)) throw new ReconciliationError('GitHub returned an invalid workflow list');
-      if (runs.workflow_runs.length) {
-        await persist('busy', { activeRun: runs.workflow_runs[0].html_url });
-        console.log(JSON.stringify({ event: 'spec-reconciliation', ...state }));
-        return state;
+      const perPage = status === 'queued' ? 100 : 1;
+      for (let page = 1; ; page++) {
+        const response = await github(request, `${WORKFLOW}/runs?branch=main&status=${status}&per_page=${perPage}&page=${page}`, token);
+        const runs = await response.json();
+        if (!Array.isArray(runs.workflow_runs)) throw new ReconciliationError('GitHub returned an invalid workflow list');
+        for (const run of runs.workflow_runs) {
+          if (status === 'queued' && await isStaleQueuedRun(request, token, run, staleBefore)) {
+            (state.ignoredQueuedRuns ??= []).push(run.id);
+            continue;
+          }
+          await persist('busy', { activeRun: run.html_url });
+          console.log(JSON.stringify({ event: 'spec-reconciliation', ...state }));
+          return state;
+        }
+        if (!response.headers.get('link')?.includes('rel="next"')) break;
       }
     }
     await github(request, `${WORKFLOW}/dispatches`, token, 'POST', {

@@ -118,9 +118,11 @@ execução do GitHub será registrada e tentada novamente no próximo intervalo.
 Os gatilhos diretos dos produtores continuam ativos.
 
 Cada execução emite um token temporário do GitHub App, restrito a Actions write
-em `araihu/oapi`, e consulta publicações ativas ou na fila. Se houver alguma,
-registra `busy` e deixa essa execução terminar. Caso contrário, dispara
-`publish.yml` na `main` com `force: false` e um identificador
+em `araihu/oapi`, e consulta publicações ativas ou na fila. Ignora uma execução
+`queued` quando o GitHub confirma que ela está há pelo menos uma hora sem
+atualização e sem jobs. Se encontrar outra execução ativa ou na fila, registra
+`busy` e espera. Com a fila livre, dispara `publish.yml` na `main` com
+`force: false` e um identificador
 `cloudflare-cron-<scheduledTime>`, visível no nome da execução do GitHub.
 O token é revogado ao terminar. Quando as refs não mudaram, a reconciliação
 apenas atualiza a saúde, sem gerar outra versão do site.
@@ -130,7 +132,8 @@ apenas atualiza a saúde, sem gerar outra versão do site.
 `failed`) e o último disparo aceito. `dispatched` confirma o aceite pelo GitHub;
 o resultado da publicação continua em
 [`/status.json`](https://oapi.araihu.com/status.json). Ambos são somente leitura
-e usam `Cache-Control: no-store`. Logs do Worker registram os mesmos eventos
+e usam `Cache-Control: no-store`. O campo `ignoredQueuedRuns` registra os IDs
+ignorados naquela tentativa. Logs do Worker registram os mesmos eventos
 sem tokens ou chaves.
 
 O deploy de produção converte a chave RSA do App para PKCS#8 em um arquivo
