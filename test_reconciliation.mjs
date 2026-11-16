@@ -87,6 +87,80 @@ for (const busy of ['in_progress', 'queued', 'waiting', 'pending', 'requested'])
   });
 }
 
+const staleRun = {
+  id: 456, updated_at: '2026-01-01T00:00:00Z', html_url: 'https://github.com/araihu/oapi/actions/runs/456',
+};
+const staleJobs = '/repos/araihu/oapi/actions/runs/456/jobs';
+
+test('a stale queued run without jobs is ignored and recorded before dispatch', async () => {
+  const f = fixture();
+  const request = async (url, options) => {
+    const { pathname, searchParams } = new URL(url);
+    if (searchParams.get('status') === 'queued') {
+      return Response.json({ workflow_runs: [staleRun] });
+    }
+    if (pathname === staleJobs) return Response.json({ total_count: 0 });
+    return f.request(url, options);
+  };
+  const result = await reconcile(event, f.env, request);
+  assert.equal(result.status, 'dispatched');
+  assert.deepEqual(f.state().ignoredQueuedRuns, [456]);
+  assert.ok(f.calls.some(c => c.path.endsWith('/dispatches')));
+});
+
+test('a queued run with jobs still blocks after a stale run on an earlier page', async () => {
+  const f = fixture();
+  const nextRun = { ...staleRun, id: 789, html_url: 'https://github.com/araihu/oapi/actions/runs/789' };
+  const request = async (url, options) => {
+    const { pathname, searchParams } = new URL(url);
+    if (searchParams.get('status') === 'queued') {
+      if (searchParams.get('page') === '1') {
+        return Response.json({ workflow_runs: [staleRun] }, {
+          headers: { Link: '<https://api.github.com/example?page=2>; rel="next"' },
+        });
+      }
+      assert.equal(searchParams.get('page'), '2');
+      return Response.json({ workflow_runs: [nextRun] });
+    }
+    if (pathname === staleJobs) return Response.json({ total_count: 0 });
+    if (pathname.endsWith('/runs/789/jobs')) return Response.json({ total_count: 1 });
+    return f.request(url, options);
+  };
+  const result = await reconcile(event, f.env, request);
+  assert.equal(result.status, 'busy');
+  assert.equal(result.activeRun, nextRun.html_url);
+  assert.deepEqual(f.state().ignoredQueuedRuns, [456]);
+  assert.ok(!f.calls.some(c => c.path.endsWith('/dispatches')));
+});
+
+test('a recently updated queued run blocks without a job lookup', async () => {
+  const f = fixture();
+  const recentRun = { ...staleRun, updated_at: new Date().toISOString() };
+  const request = async (url, options) => {
+    const { pathname, searchParams } = new URL(url);
+    assert.notEqual(pathname, staleJobs);
+    if (searchParams.get('status') === 'queued') return Response.json({ workflow_runs: [recentRun] });
+    return f.request(url, options);
+  };
+  const result = await reconcile(event, f.env, request);
+  assert.equal(result.status, 'busy');
+  assert.equal(result.activeRun, recentRun.html_url);
+  assert.equal(result.ignoredQueuedRuns, undefined);
+});
+
+test('a failed lookup of jobs for a stale queued run prevents dispatch', async () => {
+  const f = fixture();
+  const request = async (url, options) => {
+    const { pathname, searchParams } = new URL(url);
+    if (searchParams.get('status') === 'queued') return Response.json({ workflow_runs: [staleRun] });
+    if (pathname === staleJobs) return new Response(null, { status: 503 });
+    return f.request(url, options);
+  };
+  await assert.rejects(reconcile(event, f.env, request), /HTTP 503/);
+  assert.equal(f.state().status, 'failed');
+  assert.ok(!f.calls.some(c => c.path.endsWith('/dispatches')));
+});
+
 for (const failedStage of ['mint', 'list', 'dispatch']) {
   test(`GitHub ${failedStage} failure records safe diagnostics, fails the invocation and revokes issued tokens`, async () => {
     const f = fixture({ lastDispatchedAt: '2026-10-31T00:00:00Z' });
