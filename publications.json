@@ -27,7 +27,7 @@
         "apiVersion": "0.1.0",
         "audience": "public",
         "channel": "branch",
-        "commit": "01b8caa591d06044e2d4a6674a0f20a4a334dbf7",
+        "commit": "6eeaf0182d4c13d41843c49a56b52acd72aaed4e",
         "href": "/catalogs/balemoh/documents/public-next/",
         "key": "public-next",
         "project": "balemoh",
@@ -42,7 +42,7 @@
         "apiVersion": "0.1.1",
         "audience": "internal",
         "channel": "branch",
-        "commit": "1054cd05d6cfc1dd6988bac9e4a94d016f8c5328",
+        "commit": "36b7c5bee512cffa9fdbfe6698db921a657cb3a9",
         "href": "/catalogs/manja/documents/management-next/",
         "key": "management-next",
         "project": "manja",
@@ -117,7 +117,7 @@
         "apiVersion": "0.42.0",
         "audience": "local",
         "channel": "branch",
-        "commit": "29440aa332db2940347a9f841b3f0daf567b1f99",
+        "commit": "a817d98518d6cc28338fc1cb276e43b2f1d18734",
         "href": "/catalogs/oie/documents/engine-next/",
         "key": "engine-next",
         "project": "oie",
@@ -177,7 +177,7 @@
         "apiVersion": "0.1.0",
         "audience": "public",
         "channel": "branch",
-        "commit": "7213ce7399418358d1680fe5326063c3f512d226",
+        "commit": "c5f53e85f00e3f3a61ff1554ff2b330aab0c3e73",
         "href": "/catalogs/xisnove/documents/public-next/",
         "key": "public-next",
         "project": "xisnove",
@@ -189,8 +189,8 @@
         "version": null
       }
     ],
-    "fingerprint": "f6d153184b03e8fc1cc84689342300340fb2b0286e73dd5b4d83850f1694308a",
-    "generation": "build-2epit6ur",
+    "fingerprint": "a854603ec6dd2efcbc097a1aa083a72b0a7f1a28415c668ec7a06a53c37e28ae",
+    "generation": "build-icl2iqfj",
     "inputs": {
       "brandAssets": {
         "assets/brand/araihu.svg": "4cfd0b1f678fa9ef20a5c2241eeb3fcae235988f120fef07f42e3af962cf031b",
@@ -320,10 +320,10 @@
       "redocly": "2.65.0",
       "refs": {
         "balemoh": {
-          "refs/heads/main": "01b8caa591d06044e2d4a6674a0f20a4a334dbf7"
+          "refs/heads/main": "6eeaf0182d4c13d41843c49a56b52acd72aaed4e"
         },
         "manja": {
-          "refs/heads/main": "1054cd05d6cfc1dd6988bac9e4a94d016f8c5328",
+          "refs/heads/main": "36b7c5bee512cffa9fdbfe6698db921a657cb3a9",
           "refs/tags/openapi/management/v0.1.0": "2afbe23abefed0d4feb2521e7cbb5c099098348e",
           "refs/tags/openapi/management/v0.1.1": "9031cb28421cbb963acb830d000455cdf0438589"
         },
@@ -331,7 +331,7 @@
           "refs/heads/main": "b8e00b21286854d5d9fedb0665184871f1044a7b"
         },
         "oie": {
-          "refs/heads/main": "29440aa332db2940347a9f841b3f0daf567b1f99",
+          "refs/heads/main": "a817d98518d6cc28338fc1cb276e43b2f1d18734",
           "refs/tags/openapi/engine/v0.30.0": "5756c61a61be02e71070eb24fab76ba937f6879c",
           "refs/tags/openapi/engine/v0.30.1": "604f2deab01720605f4d6f9feffbccb27109c6f1"
         },
@@ -339,13 +339,13 @@
           "refs/heads/main": "b8d5c010671aaa4d8c080d2a75768a983f119847"
         },
         "xisnove": {
-          "refs/heads/main": "7213ce7399418358d1680fe5326063c3f512d226"
+          "refs/heads/main": "c5f53e85f00e3f3a61ff1554ff2b330aab0c3e73"
         }
       },
       "renderer": "593430432664054466218f0336ba0904daea91407342624984e268bafe59db39"
     },
     "manjaRevision": "56318e36ec4d1afff6bf4592e38645ed75df78be",
-    "publishedAt": "2026-11-24T02:14:06.302198+00:00",
+    "publishedAt": "2026-11-24T15:21:02.317933+00:00",
     "releases": {
       "manja:refs/tags/openapi/management/v0.1.0": {
         "commit": "56318e36ec4d1afff6bf4592e38645ed75df78be",
@@ -386,7 +386,7 @@
     },
     "schemaVersion": 1
   },
-  "checkedAt": "2026-11-24T02:14:26.060244+00:00",
+  "checkedAt": "2026-11-24T15:21:38.472781+00:00",
   "deployed": {
     "aliases": {
       "/catalogs/balemoh/specs/public/branches/main/": "/catalogs/balemoh/documents/public-next/",
@@ -415,7 +415,7 @@
         "apiVersion": "0.1.0",
         "audience": "public",
         "channel": "branch",
-        "commit": "01b8caa591d06044e2d4a6674a0f20a4a334dbf7",
+        "commit": "6eeaf0182d4c13d41843c49a56b52acd72aaed4e",
         "href": "/catalogs/balemoh/documents/public-next/",
         "key": "public-next",
         "project": "balemoh",
@@ -430,7 +430,7 @@
         "apiVersion": "0.1.1",
         "audience": "internal",
         "channel": "branch",
-        "commit": "1054cd05d6cfc1dd6988bac9e4a94d016f8c5328",
+        "commit": "36b7c5bee512cffa9fdbfe6698db921a657cb3a9",
         "href": "/catalogs/manja/documents/management-next/",
         "key": "management-next",
         "project": "manja",
@@ -505,7 +505,7 @@
         "apiVersion": "0.42.0",
         "audience": "local",
         "channel": "branch",
-        "commit": "29440aa332db2940347a9f841b3f0daf567b1f99",
+        "commit": "a817d98518d6cc28338fc1cb276e43b2f1d18734",
         "href": "/catalogs/oie/documents/engine-next/",
         "key": "engine-next",
         "project": "oie",
@@ -565,7 +565,7 @@
         "apiVersion": "0.1.0",
         "audience": "public",
         "channel": "branch",
-        "commit": "7213ce7399418358d1680fe5326063c3f512d226",
+        "commit": "c5f53e85f00e3f3a61ff1554ff2b330aab0c3e73",
         "href": "/catalogs/xisnove/documents/public-next/",
         "key": "public-next",
         "project": "xisnove",
@@ -577,8 +577,8 @@
         "version": null
       }
     ],
-    "fingerprint": "f6d153184b03e8fc1cc84689342300340fb2b0286e73dd5b4d83850f1694308a",
-    "generation": "build-2epit6ur",
+    "fingerprint": "a854603ec6dd2efcbc097a1aa083a72b0a7f1a28415c668ec7a06a53c37e28ae",
+    "generation": "build-icl2iqfj",
     "inputs": {
       "brandAssets": {
         "assets/brand/araihu.svg": "4cfd0b1f678fa9ef20a5c2241eeb3fcae235988f120fef07f42e3af962cf031b",
@@ -708,10 +708,10 @@
       "redocly": "2.65.0",
       "refs": {
         "balemoh": {
-          "refs/heads/main": "01b8caa591d06044e2d4a6674a0f20a4a334dbf7"
+          "refs/heads/main": "6eeaf0182d4c13d41843c49a56b52acd72aaed4e"
         },
         "manja": {
-          "refs/heads/main": "1054cd05d6cfc1dd6988bac9e4a94d016f8c5328",
+          "refs/heads/main": "36b7c5bee512cffa9fdbfe6698db921a657cb3a9",
           "refs/tags/openapi/management/v0.1.0": "2afbe23abefed0d4feb2521e7cbb5c099098348e",
           "refs/tags/openapi/management/v0.1.1": "9031cb28421cbb963acb830d000455cdf0438589"
         },
@@ -719,7 +719,7 @@
           "refs/heads/main": "b8e00b21286854d5d9fedb0665184871f1044a7b"
         },
         "oie": {
-          "refs/heads/main": "29440aa332db2940347a9f841b3f0daf567b1f99",
+          "refs/heads/main": "a817d98518d6cc28338fc1cb276e43b2f1d18734",
           "refs/tags/openapi/engine/v0.30.0": "5756c61a61be02e71070eb24fab76ba937f6879c",
           "refs/tags/openapi/engine/v0.30.1": "604f2deab01720605f4d6f9feffbccb27109c6f1"
         },
@@ -727,13 +727,13 @@
           "refs/heads/main": "b8d5c010671aaa4d8c080d2a75768a983f119847"
         },
         "xisnove": {
-          "refs/heads/main": "7213ce7399418358d1680fe5326063c3f512d226"
+          "refs/heads/main": "c5f53e85f00e3f3a61ff1554ff2b330aab0c3e73"
         }
       },
       "renderer": "593430432664054466218f0336ba0904daea91407342624984e268bafe59db39"
     },
     "manjaRevision": "56318e36ec4d1afff6bf4592e38645ed75df78be",
-    "publishedAt": "2026-11-24T02:14:06.302198+00:00",
+    "publishedAt": "2026-11-24T15:21:02.317933+00:00",
     "releases": {
       "manja:refs/tags/openapi/management/v0.1.0": {
         "commit": "56318e36ec4d1afff6bf4592e38645ed75df78be",
