@@ -162,7 +162,7 @@
         "apiVersion": "0.0.2",
         "audience": "local",
         "channel": "branch",
-        "commit": "b8d5c010671aaa4d8c080d2a75768a983f119847",
+        "commit": "677e0b5f6ffab60ece29b9bc18ff13945fd33e5c",
         "href": "/catalogs/talaria-mem/documents/control-next/",
         "key": "control-next",
         "project": "talaria-mem",
@@ -177,7 +177,7 @@
         "apiVersion": "0.1.0",
         "audience": "public",
         "channel": "branch",
-        "commit": "c5f53e85f00e3f3a61ff1554ff2b330aab0c3e73",
+        "commit": "42f98a70f0abb9e6fd432394ad704fb9dbe8a828",
         "href": "/catalogs/xisnove/documents/public-next/",
         "key": "public-next",
         "project": "xisnove",
@@ -189,8 +189,8 @@
         "version": null
       }
     ],
-    "fingerprint": "0148685908d8fd83b53a635902fb39072cf7fc773146f3c080abc301784c2f12",
-    "generation": "build-a3fa9sji",
+    "fingerprint": "cb56541f6a2b689c01c398a5d895bf7198a66f800235a54f7fe5c09e00bccab7",
+    "generation": "build-ic_awsaf",
     "inputs": {
       "brandAssets": {
         "assets/brand/araihu.svg": "4cfd0b1f678fa9ef20a5c2241eeb3fcae235988f120fef07f42e3af962cf031b",
@@ -336,16 +336,16 @@
           "refs/tags/openapi/engine/v0.30.1": "604f2deab01720605f4d6f9feffbccb27109c6f1"
         },
         "talaria-mem": {
-          "refs/heads/main": "b8d5c010671aaa4d8c080d2a75768a983f119847"
+          "refs/heads/main": "677e0b5f6ffab60ece29b9bc18ff13945fd33e5c"
         },
         "xisnove": {
-          "refs/heads/main": "c5f53e85f00e3f3a61ff1554ff2b330aab0c3e73"
+          "refs/heads/main": "42f98a70f0abb9e6fd432394ad704fb9dbe8a828"
         }
       },
       "renderer": "593430432664054466218f0336ba0904daea91407342624984e268bafe59db39"
     },
     "manjaRevision": "56318e36ec4d1afff6bf4592e38645ed75df78be",
-    "publishedAt": "2026-11-24T20:43:52.347271+00:00",
+    "publishedAt": "2026-11-24T21:54:16.708280+00:00",
     "releases": {
       "manja:refs/tags/openapi/management/v0.1.0": {
         "commit": "56318e36ec4d1afff6bf4592e38645ed75df78be",
@@ -386,7 +386,7 @@
     },
     "schemaVersion": 1
   },
-  "checkedAt": "2026-11-24T20:44:49.645266+00:00",
+  "checkedAt": "2026-11-24T21:54:32.752972+00:00",
   "deployed": {
     "aliases": {
       "/catalogs/balemoh/specs/public/branches/main/": "/catalogs/balemoh/documents/public-next/",
@@ -550,7 +550,7 @@
         "apiVersion": "0.0.2",
         "audience": "local",
         "channel": "branch",
-        "commit": "b8d5c010671aaa4d8c080d2a75768a983f119847",
+        "commit": "677e0b5f6ffab60ece29b9bc18ff13945fd33e5c",
         "href": "/catalogs/talaria-mem/documents/control-next/",
         "key": "control-next",
         "project": "talaria-mem",
@@ -565,7 +565,7 @@
         "apiVersion": "0.1.0",
         "audience": "public",
         "channel": "branch",
-        "commit": "c5f53e85f00e3f3a61ff1554ff2b330aab0c3e73",
+        "commit": "42f98a70f0abb9e6fd432394ad704fb9dbe8a828",
         "href": "/catalogs/xisnove/documents/public-next/",
         "key": "public-next",
         "project": "xisnove",
@@ -577,8 +577,8 @@
         "version": null
       }
     ],
-    "fingerprint": "0148685908d8fd83b53a635902fb39072cf7fc773146f3c080abc301784c2f12",
-    "generation": "build-a3fa9sji",
+    "fingerprint": "cb56541f6a2b689c01c398a5d895bf7198a66f800235a54f7fe5c09e00bccab7",
+    "generation": "build-ic_awsaf",
     "inputs": {
       "brandAssets": {
         "assets/brand/araihu.svg": "4cfd0b1f678fa9ef20a5c2241eeb3fcae235988f120fef07f42e3af962cf031b",
@@ -724,16 +724,16 @@
           "refs/tags/openapi/engine/v0.30.1": "604f2deab01720605f4d6f9feffbccb27109c6f1"
         },
         "talaria-mem": {
-          "refs/heads/main": "b8d5c010671aaa4d8c080d2a75768a983f119847"
+          "refs/heads/main": "677e0b5f6ffab60ece29b9bc18ff13945fd33e5c"
         },
         "xisnove": {
-          "refs/heads/main": "c5f53e85f00e3f3a61ff1554ff2b330aab0c3e73"
+          "refs/heads/main": "42f98a70f0abb9e6fd432394ad704fb9dbe8a828"
         }
       },
       "renderer": "593430432664054466218f0336ba0904daea91407342624984e268bafe59db39"
     },
     "manjaRevision": "56318e36ec4d1afff6bf4592e38645ed75df78be",
-    "publishedAt": "2026-11-24T20:43:52.347271+00:00",
+    "publishedAt": "2026-11-24T21:54:16.708280+00:00",
     "releases": {
       "manja:refs/tags/openapi/management/v0.1.0": {
         "commit": "56318e36ec4d1afff6bf4592e38645ed75df78be",
